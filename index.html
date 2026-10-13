@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>לחגוג: ימי הולדת ואירועים</title>
+    <meta name="description" content="לחגוג: ימי הולדת ואירועים עם הלוח העברי, תזכורות בזמן, חברים שמקבלים את יום ההולדת שלך, צ׳אטים ותכנון מסיבות." />
+    <meta name="theme-color" content="#E84A2F" />
+    <meta property="og:title" content="לחגוג" />
+    <meta property="og:description" content="ימי הולדת ואירועים, בלי לפספס אף אחד." />
+    <meta property="og:url" content="https://lahgog.app/" />
+    <meta property="og:locale" content="he_IL" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1 class="brand">לחגוג</h1>
+      <p class="lead">ימי הולדת ואירועים, בלי לפספס אף אחד.</p>
+      <a class="button" id="play" href="https://play.google.com/store/apps/details?id=com.lahgog.app">להורדה מ-Google Play</a>
+      <p class="note" id="iosNote" hidden>לחגוג זמינה כרגע לאנדרואיד.</p>
+      <section class="card">
+        <h2>מה יש באפליקציה</h2>
+        <ul>
+          <li>תזכורות בזמן לימי הולדת, ימי נישואין ואירועים, גם בלי אינטרנט</li>
+          <li>התאריך הלועזי לצד התאריך העברי, כולל ימי הולדת לפי הלוח העברי</li>
+          <li>חברים שמקבלים את יום ההולדת שלך מעצמם, ואת שלהם אליך</li>
+          <li>צ׳אטים, תכנון מסיבות, מי מגיע ומי מביא מה</li>
+          <li>ווידג׳טים למסך הבית ועיצובים לבחירה</li>
+          <li>גיבוי וייבוא מאנשי הקשר, מקובץ או מאפליקציה אחרת</li>
+        </ul>
+      </section>
+    </main>
+    <footer>לחגוג · lahgog.app</footer>
+    <script>
+      // iPhone: there's no iOS app yet, so the Play button would lead nowhere useful.
+      if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        document.getElementById('play').hidden = true;
+        document.getElementById('iosNote').hidden = false;
+      }
+    </script>
+  </body>
+</html>

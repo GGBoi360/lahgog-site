@@ -1,0 +1,86 @@
+/* lahgog.app: one small stylesheet for the landing page and the invite page. Colors follow the app's קלאסי skin. */
+:root {
+  --coral: #e84a2f;
+  --saffron: #f4a62a;
+  --paper: #fff8f1;
+  --card: #ffffff;
+  --ink: #2b1d17;
+  --muted: #7a6a62;
+  --line: #f0dfd2;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1c1411;
+    --card: #2a1f1b;
+    --ink: #fbefe6;
+    --muted: #c4b2a8;
+    --line: #3d2e28;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: 'Rubik', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 16px;
+}
+main { width: 100%; max-width: 440px; }
+.brand {
+  font-size: 44px;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(90deg, var(--coral), var(--saffron));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lead { font-size: 18px; color: var(--muted); margin: 4px 0 28px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.card h2 { margin: 0 0 8px; font-size: 22px; }
+.card p { margin: 0 0 12px; color: var(--muted); }
+.code {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  direction: ltr;
+  text-align: center;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--paper);
+  border: 1px dashed var(--coral);
+  margin: 12px 0;
+  user-select: all;
+}
+.button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font: inherit;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 0;
+  background: var(--coral);
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button.secondary { background: transparent; color: var(--coral); border: 1px solid var(--coral); margin-top: 10px; }
+ul { padding-inline-start: 20px; margin: 0; color: var(--muted); }
+.note { font-size: 14px; color: var(--muted); text-align: center; margin: 10px 0 18px; }
+footer { margin-top: 24px; font-size: 13px; color: var(--muted); text-align: center; }
+[hidden] { display: none !important; }

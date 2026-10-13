@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>לחגוג</title>
+    <meta name="theme-color" content="#E84A2F" />
+    <meta name="robots" content="noindex" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!--
+      The invite page. Every link the app shares (src/features/sharing/inviteLinks.ts) lands here when the app didn't
+      open it: /j/<code> a chat, /i/<code> an invite to the app, /f/<code> a friend, /a?d=… an event, /l?d=… a list.
+      On a phone with the app (lahgog.app verified through /.well-known/assetlinks.json) the app opens instead and
+      this page is never seen. On Android without the app it sends the visitor to Google Play with the invite in the
+      install referrer ("lahgog=<path and query>"), so the app can open the invite on its first launch (deferred deep
+      link). GitHub Pages serves this page for any path without a file (it's the 404 page); anything that isn't one
+      of our links shows "not found".
+    -->
+    <main>
+      <h1 class="brand">לחגוג</h1>
+      <section class="card" id="invite" hidden>
+        <h2 id="title"></h2>
+        <p id="text"></p>
+        <a class="button" id="play" href="https://play.google.com/store/apps/details?id=com.lahgog.app">להורדה מ-Google Play</a>
+        <p class="note" id="after">אחרי ההתקנה ההזמנה תיפתח באפליקציה.</p>
+        <p class="note" id="iosNote" hidden>לחגוג זמינה כרגע לאנדרואיד.</p>
+        <div id="codeBox" hidden>
+          <p>או להקליד באפליקציה את הקוד:</p>
+          <div class="code" id="code"></div>
+          <button class="button secondary" id="copy" type="button" hidden>העתקת הקוד</button>
+        </div>
+      </section>
+      <section class="card" id="missing" hidden>
+        <h2>הדף לא נמצא</h2>
+        <p>אולי הקישור נקטע בדרך.</p>
+        <a class="button secondary" href="/">לדף הבית</a>
+      </section>
+    </main>
+    <footer>לחגוג · lahgog.app</footer>
+    <script>
+      (function () {
+        var PACKAGE = 'com.lahgog.app';
+        var CODE = /^[A-HJKMNP-Z2-9]{8}$/;
+        var KINDS = {
+          j: { title: 'הוזמנת לצ׳אט', text: 'מזמינים אותך לצ׳אט בלחגוג.' },
+          i: { title: 'בואו לחגוג ביחד 🎉', text: 'קיבלת הזמנה להצטרף ללחגוג.' },
+          f: { title: 'בקשת חברות', text: 'מישהו רוצה להיות חברים בלחגוג.' },
+          a: { title: 'אירוע שותף איתך', text: 'שיתפו איתך אירוע להוספה ללוח שלך בלחגוג.' },
+          l: { title: 'רשימת ימי הולדת', text: 'שיתפו איתך ימי הולדת להוספה ללוח שלך בלחגוג.' },
+        };
+        var $ = function (id) { return document.getElementById(id); };
+        var path = location.pathname.replace(/\/+$/, '');
+        var withCode = /^\/(j|i|f)\/([A-Za-z0-9]{8})$/.exec(path);
+        var withData = /^\/(a|l)$/.test(path) && /[?&]d=[A-Za-z0-9_-]+/.test(location.search);
+        var kind = withCode ? withCode[1] : withData ? path.slice(1) : null;
+        var code = withCode ? withCode[2].toUpperCase() : null;
+        if (!kind || (code && !CODE.test(code))) {
+          $('missing').hidden = false;
+          return;
+        }
+        $('title').textContent = KINDS[kind].title;
+        $('text').textContent = KINDS[kind].text;
+        $('invite').hidden = false;
+
+        // The invite rides along through the install (Google Play's install referrer), when it fits.
+        var invite = withCode ? '/' + kind + '/' + code : path + location.search;
+        var referrer = encodeURIComponent('lahgog=' + encodeURIComponent(invite));
+        var play = 'https://play.google.com/store/apps/details?id=' + PACKAGE + (referrer.length < 900 ? '&referrer=' + referrer : '');
+        $('play').href = play;
+
+        if (code) {
+          $('code').textContent = code;
+          $('codeBox').hidden = false;
+          if (navigator.clipboard) {
+            var copy = $('copy');
+            copy.hidden = false;
+            copy.addEventListener('click', function () {
+              navigator.clipboard.writeText(code).then(function () { copy.textContent = 'הועתק ✓'; });
+            });
+          }
+        }
+
+        var ua = navigator.userAgent;
+        if (/iPhone|iPad|iPod/.test(ua)) {
+          $('play').hidden = true;
+          $('after').hidden = true;
+          $('iosNote').hidden = false;
+        } else if (/Android/.test(ua)) {
+          // Like most apps: straight on to the store after a moment to read what the invite is.
+          setTimeout(function () { location.href = play; }, 1500);
+        }
+      })();
+    </script>
+  </body>
+</html>
