@@ -10,6 +10,21 @@ serves for every path without a file: `/j/<code>`, `/i/<code>`, `/f/<code>`, `/a
 `src/features/sharing/inviteLinks.ts`), and `/.well-known/assetlinks.json`, which tells Android that the app may open
 `https://lahgog.app/...` links itself (App Links; the intent filter with `autoVerify` is in `app.json`).
 
+## Legal pages (website session, since 2026-10-14)
+
+`/privacy`, `/terms`, `/delete-account`, `/accessibility`: Hebrew first, then English (`#en`), and the Hebrew version
+prevails.
+- Written from `docs/legal/data-facts.md` (the app session keeps it current) with research in
+  `docs/website/research/legal-benchmark.md`.
+- Posture (owner): maximum protection that still survives the Standard Contracts Law, and never a false statement
+  about data.
+- Keep the URLs: `/privacy` and `/terms` are on the Google consent screen, and `/delete-account` goes in Play's Data
+  safety form.
+- Any change to the privacy page also updates `docs/store/play-data-safety.md`.
+- Bump the version and effective date on every change. A material change needs notice of 30 days (both pages; privacy
+  §17, terms §17). After changing the terms, also raise `TERMS_VERSION` in the app (`src/features/legal/legal.ts`)
+  so the app asks for acceptance again.
+
 ## assetlinks.json
 
 One entry per Android package and signing key:

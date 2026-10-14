@@ -95,3 +95,20 @@ main.doc hr { border: none; border-top: 1px solid var(--line); margin: 40px 0; }
 a { color: var(--coral); }
 footer a { color: inherit; }
 main.doc .note { text-align: start; margin: 0 0 18px; }
+main.doc ol { padding-inline-start: 22px; }
+main.doc h2[id] { scroll-margin-top: 16px; }
+.skip { position: absolute; inset-inline-start: 8px; top: -60px; background: var(--coral); color: #fff; padding: 8px 14px; border-radius: 10px; z-index: 10; }
+.skip:focus { top: 8px; }
+.docnav { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 15px; margin-bottom: 12px; }
+.summary { background: var(--card); border: 1px solid var(--line); border-inline-start: 4px solid var(--coral); border-radius: 14px; padding: 14px 18px; margin: 0 0 20px; }
+.summary p { margin: 0; }
+.toc { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px 18px; margin-bottom: 8px; }
+.toc summary { cursor: pointer; font-weight: 600; }
+.toc ol { margin: 8px 0 4px; columns: 2; column-gap: 28px; }
+.toc li { margin-bottom: 2px; break-inside: avoid; }
+@media (max-width: 560px) { .toc ol { columns: 1; } }
+.table-wrap { overflow-x: auto; margin: 8px 0 12px; }
+main.doc table { width: 100%; border-collapse: collapse; font-size: 15px; }
+main.doc th, main.doc td { text-align: start; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+main.doc th { font-weight: 600; background: var(--card); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; border-radius: 4px; }
