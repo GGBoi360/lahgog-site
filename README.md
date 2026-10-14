@@ -19,12 +19,22 @@ One entry per Android package and signing key:
 | `com.lahgog.app.preview` | EAS keystore, created 2026-10-13 | `BE:1D:02:…:85:2B`, read from the build's APK (v2 signature block) |
 | `com.lahgog.app` | Google Play App Signing | add when the app is first uploaded to Play (Play Console → App integrity) |
 
+## Publishing a change
+
+This folder is the source of truth; the public repo **GGBoi360/lahgog-site** (GitHub Pages, branch `main`, root) only
+mirrors it (created 2026-10-13, owner approved). To publish: clone that repo into a scratch folder, copy this folder's
+files over it (including `.well-known`, `.nojekyll`, `CNAME`), commit and push; Pages redeploys in about a minute.
+
 ## Hosting
 
 GitHub Pages from a public repo holding this folder, custom domain `lahgog.app` (`CNAME` file), HTTPS enforced
 (`.app` requires HTTPS). `.nojekyll` keeps the `.well-known` folder published. DNS at Porkbun: the apex `lahgog.app`
 points at GitHub Pages (A records `185.199.108.153`, `.109.153`, `.110.153`, `.111.153`).
 
-Once the site answers, set `EXPO_PUBLIC_WEB_URL=https://lahgog.app` (EAS environments and `.env.local`) so the app
-shares links instead of bare codes. Check: `https://lahgog.app/.well-known/assetlinks.json` returns the JSON, and
+*Live since 2026-10-14:* DNS at Porkbun (A and AAAA records, `www` → `ggboi360.github.io`), HTTPS enforced. The
+certificate stayed pending for over an hour; removing and re-adding the custom domain (Pages settings, or
+`gh api -X PUT repos/GGBoi360/lahgog-site/pages -F cname=` then `-f cname=lahgog.app`) issued it within seconds.
+`EXPO_PUBLIC_WEB_URL=https://lahgog.app` is set (EAS preview/production/development and `.env.local`), so the app
+shares links instead of bare codes. lahgog.com and lachgog.com are not forwarded on purpose: lahgog.com is kept for
+the vendors and organizers site (roadmap R87). Check: `https://lahgog.app/.well-known/assetlinks.json` returns the JSON, and
 on the phone, Settings → Apps → the app → "Open by default" lists lahgog.app as verified.

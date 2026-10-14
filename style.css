@@ -84,3 +84,14 @@ ul { padding-inline-start: 20px; margin: 0; color: var(--muted); }
 .note { font-size: 14px; color: var(--muted); text-align: center; margin: 10px 0 18px; }
 footer { margin-top: 24px; font-size: 13px; color: var(--muted); text-align: center; }
 [hidden] { display: none !important; }
+/* The privacy and terms pages: a wider reading column. */
+main.doc { max-width: 720px; }
+main.doc h1 { font-size: 30px; margin: 8px 0 4px; }
+main.doc h2 { font-size: 20px; margin: 28px 0 8px; }
+main.doc p, main.doc li { color: var(--ink); }
+main.doc ul { padding-inline-start: 22px; }
+main.doc li { margin-bottom: 6px; }
+main.doc hr { border: none; border-top: 1px solid var(--line); margin: 40px 0; }
+a { color: var(--coral); }
+footer a { color: inherit; }
+main.doc .note { text-align: start; margin: 0 0 18px; }
