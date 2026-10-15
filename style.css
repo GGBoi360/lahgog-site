@@ -84,6 +84,13 @@ ul { padding-inline-start: 20px; margin: 0; color: var(--muted); }
 .note { font-size: 14px; color: var(--muted); text-align: center; margin: 10px 0 18px; }
 footer { margin-top: 24px; font-size: 13px; color: var(--muted); text-align: center; }
 [hidden] { display: none !important; }
+.countdown h2 { text-align: center; }
+.countdown > p { text-align: center; }
+.clock { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 16px 0 20px; }
+.clock div { background: var(--paper); border-radius: 14px; padding: 12px 4px; text-align: center; }
+.clock span { display: block; font-size: 30px; font-weight: 700; color: var(--coral); font-variant-numeric: tabular-nums; }
+.clock small { display: block; font-size: 13px; color: var(--muted); }
+.countdown .today { font-size: 26px; font-weight: 700; color: var(--ink); }
 /* The privacy and terms pages: a wider reading column. */
 main.doc { max-width: 720px; }
 main.doc h1 { font-size: 30px; margin: 8px 0 4px; }

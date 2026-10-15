@@ -32,6 +32,19 @@
           <button class="button secondary" id="copy" type="button" hidden>העתקת הקוד</button>
         </div>
       </section>
+      <section class="card countdown" id="countdown" hidden>
+        <h2 id="cdTitle"></h2>
+        <p id="cdWhen"></p>
+        <div class="clock" id="cdClock" hidden aria-live="off">
+          <div><span id="cdDays">0</span><small>ימים</small></div>
+          <div><span id="cdHours">00</span><small>שעות</small></div>
+          <div><span id="cdMinutes">00</span><small>דקות</small></div>
+          <div><span id="cdSeconds">00</span><small>שניות</small></div>
+        </div>
+        <p class="today" id="cdToday" hidden>זה היום! 🎉</p>
+        <a class="button" id="cdPlay" href="https://play.google.com/store/apps/details?id=com.lahgog.app">לחגוג ב-Google Play</a>
+        <p class="note" id="cdNote">באפליקציה אפשר להוסיף את האירוע ללוח ולקבל תזכורת.</p>
+      </section>
       <section class="card" id="missing" hidden>
         <h2>הדף לא נמצא</h2>
         <p>אולי הקישור נקטע בדרך.</p>
@@ -53,6 +66,28 @@
         var $ = function (id) { return document.getElementById(id); };
         var path = location.pathname.replace(/\/+$/, '');
         var withCode = /^\/(j|i|f)\/([A-Za-z0-9]{8})$/.exec(path);
+        // The live countdown (R84): shown here, ticking, for someone without the app (countdown.js).
+        var countdownData = path === '/c' && /[?&]d=([A-Za-z0-9_-]+)/.exec(location.search);
+        if (countdownData) {
+          var cdScript = document.createElement('script');
+          cdScript.src = '/countdown.js';
+          cdScript.onload = function () {
+            var cdInvite = encodeURIComponent('lahgog=' + encodeURIComponent('/c' + location.search));
+            if (cdInvite.length < 900) $('cdPlay').href += '&referrer=' + cdInvite;
+            if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+              $('cdPlay').hidden = true;
+              $('cdNote').textContent = 'לחגוג זמינה כרגע לאנדרואיד.';
+            }
+            $('countdown').hidden = false;
+            window.LahgogCountdown.show(countdownData[1], {
+              title: $('cdTitle'), when: $('cdWhen'), clock: $('cdClock'), today: $('cdToday'),
+              days: $('cdDays'), hours: $('cdHours'), minutes: $('cdMinutes'), seconds: $('cdSeconds'),
+            }, function () { $('countdown').hidden = true; $('missing').hidden = false; });
+          };
+          cdScript.onerror = function () { $('missing').hidden = false; };
+          document.head.appendChild(cdScript);
+          return;
+        }
         var withData = /^\/(a|l)$/.test(path) && /[?&]d=[A-Za-z0-9_-]+/.test(location.search);
         var kind = withCode ? withCode[1] : withData ? path.slice(1) : null;
         var code = withCode ? withCode[2].toUpperCase() : null;
