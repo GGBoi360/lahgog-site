@@ -91,6 +91,8 @@
       oneTime: d.oneTime === true,
       repeat: repeat,
       time: typeof d.time === 'string' && TIME.test(d.time) ? d.time : undefined,
+      // R107: an "other" event over several days (2..61, MAX_SPAN_DAYS + 1); anything else is dropped, like the app.
+      days: d.eventType === 'other' && !repeat && isInt(d.days) && d.days >= 2 && d.days <= 61 ? d.days : 1,
     };
   }
 
@@ -217,19 +219,39 @@
     return t;
   }
 
+  // A multi-day event (R107) is current until its last day: look for occurrences from (today - days + 1).
+  function nextSpan(ev, t) {
+    var next = nextDate(ev, ev.days > 1 ? addDays(t, 1 - ev.days) : t);
+    if (!next) return null;
+    return { date: next.date, end: addDays(next.date, ev.days - 1) };
+  }
+
+  function dateLabel(d, end) {
+    var js = function (x) { return new Date(x.year, x.month - 1, x.day); };
+    if (compare(end, d) === 0) return new Intl.DateTimeFormat('he-IL', { weekday: 'long', day: 'numeric', month: 'long' }).format(js(d));
+    var dm = new Intl.DateTimeFormat('he-IL', { day: 'numeric', month: 'long' });
+    // "3–6 בנובמבר" in the same month, "30 בנובמבר – 2 בדצמבר" across months (as the app shows it).
+    if (d.year === end.year && d.month === end.month) return d.day + '–' + dm.format(js(end));
+    return dm.format(js(d)) + ' – ' + dm.format(js(end));
+  }
+
   function render(ev, els) {
     var t = today();
-    var next = nextDate(ev, t);
+    var next = nextSpan(ev, t);
     els.title.textContent = 'עד ' + subject(ev);
     if (!next) {
       els.when.textContent = 'האירוע הזה כבר עבר';
       return;
     }
     var d = next.date;
-    var label = new Intl.DateTimeFormat('he-IL', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date(d.year, d.month - 1, d.day));
-    els.when.textContent = label + (ev.time ? ' · בשעה ' + ev.time : '');
+    els.when.textContent = dateLabel(d, next.end) + (ev.time ? ' · בשעה ' + ev.time : '');
     var parts = ev.time ? ev.time.split(':') : null;
     var target = new Date(d.year, d.month - 1, d.day, parts ? +parts[0] : 0, parts ? +parts[1] : 0, 0);
+    // From the first day to the last day of a multi-day event: no counter, the "today" state.
+    if (ev.days > 1 && compare(d, t) <= 0) {
+      els.today.hidden = false;
+      return;
+    }
     if (!parts && compare(d, t) === 0) {
       els.today.hidden = false;
       return;
@@ -257,6 +279,8 @@
   global.LahgogCountdown = {
     decode: decode,
     nextDate: nextDate,
+    nextSpan: nextSpan,
+    dateLabel: dateLabel,
     needsHebcal: needsHebcal,
     show: function (encoded, els, onInvalid) {
       var ev = decode(encoded);
