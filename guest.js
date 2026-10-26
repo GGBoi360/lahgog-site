@@ -1,4 +1,4 @@
-// Guest pages (no account): /p/<token> answers a plan's invitation (R105), /g/<token> a chat event's (R51).
+// Guest pages (no account): /p/?t=<token> answers a plan's invitation (R105), /g/?t=<token> a chat event's (R51).
 // The server functions are public by design (plan_guest_view / plan_guest_rsvp, guest_event / guest_rsvp) and return
 // only what a guest may see. The key that lets a guest change their answer stays in this browser (localStorage).
 // The anon key below is the app's public key (role "anon"): access is decided by those functions, not by the key.
@@ -28,8 +28,8 @@
   function store(token) {
     var k = 'lahgog.guest.' + token;
     return {
-      get: function () { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } },
-      set: function (v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private mode: the answer is saved, only changing it later needs the key */ } },
+      get: function () { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (_e) { return null; } },
+      set: function (v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (_e) { /* private mode: the answer is saved, only changing it later needs the key */ } },
     };
   }
 

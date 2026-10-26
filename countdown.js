@@ -32,7 +32,7 @@
   function utf8(bytes) {
     try {
       return new TextDecoder('utf-8', { fatal: true }).decode(new Uint8Array(bytes));
-    } catch (e) {
+    } catch (_e) {
       return null;
     }
   }
@@ -72,7 +72,7 @@
     var json = bytes && utf8(bytes);
     if (!json) return null;
     var d;
-    try { d = JSON.parse(json); } catch (e) { return null; }
+    try { d = JSON.parse(json); } catch (_e) { return null; }
     if (!d || typeof d !== 'object' || d.v !== 1 || !isText(d.name)) return null;
     if (['birthday', 'anniversary', 'other'].indexOf(d.eventType) < 0) return null;
     if (d.title !== undefined && !isText(d.title)) return null;
