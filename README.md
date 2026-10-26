@@ -17,7 +17,7 @@ serves for every path without a file: `/j/<code>`, `/i/<code>`, `/f/<code>`, `/a
   - `landing.js` draws today's calendar page (the Gregorian date plus the Hebrew date in Hebrew numerals, from Intl's
     Hebrew calendar) and a countdown to the next Hanukkah. Nothing is fetched.
   - Fonts are self-hosted in `fonts/` (Rubik subset, SIL OFL).
-  - Images: `og.png`, `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192/512.png`, `icon.svg`,
+  - Images: `og.png` (Hebrew), `og-en.png` (English), `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192/512.png`, `icon.svg`,
     `flame.svg`.
   - Metadata: `site.webmanifest`, `robots.txt`, `sitemap.xml`.
 - **Until the Play listing is public**, the pages say "בקרוב ב-Google Play" (no link, no badge, no QR); the invite

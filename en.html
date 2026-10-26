@@ -3,24 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lahgog: birthday and event reminders, Hebrew calendar included</title>
-    <meta name="description" content="A birthday and events app: reminders on time, Hebrew birthdays calculated right, AI that helps you plan and get ready, and chats with who's coming and who brings what. Free download for Android." />
+    <title>Lahgog: plan any event with AI, and never miss a birthday</title>
+    <meta name="description" content="Planning a party, a birthday or a family dinner? Tell the AI what you want and get a plan: dates, to-dos, guests, budget and vendors. And Lahgog remembers every birthday too. Free download for Android." />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#E84A2F" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1A1220" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#24152F" />
     <link rel="canonical" href="https://lahgog.app/en" />
     <link rel="alternate" hreflang="he" href="https://lahgog.app/" />
     <link rel="alternate" hreflang="en" href="https://lahgog.app/en" />
     <link rel="alternate" hreflang="x-default" href="https://lahgog.app/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Lahgog" />
-    <meta property="og:title" content="Lahgog: birthdays and events, never miss anyone" />
-    <meta property="og:description" content="Reminders on time, the Hebrew date done right, and help planning and getting ready." />
+    <meta property="og:title" content="Lahgog: from the idea to the party, in one conversation" />
+    <meta property="og:description" content="Event plans with AI, tools for organizers, chats with who's coming and who brings what, and reminders for every birthday." />
     <meta property="og:url" content="https://lahgog.app/en" />
-    <meta property="og:image" content="https://lahgog.app/og.png" />
+    <meta property="og:image" content="https://lahgog.app/og-en.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="A Lahgog calendar page with the Gregorian and Hebrew date and a lit candle" />
+    <meta property="og:image:alt" content="Lahgog: from the idea to the party, in one conversation" />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -45,102 +44,188 @@
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
-    <header class="wrap top">
-      <a class="mark" href="/en"><img src="/icon.svg" alt="" width="38" height="38" />Lahgog</a>
-      <a class="lang" href="/" lang="he" hreflang="he">עברית</a>
-    </header>
 
-    <main id="main">
-      <section class="wrap hero">
+    <div class="stage">
+      <header class="wrap top">
+        <a class="mark" href="/en"><img src="/icon.svg" alt="" width="40" height="40" />Lahgog</a>
+        <a class="lang" href="/" lang="he" hreflang="he">עברית</a>
+      </header>
+      <section class="wrap hero" id="main">
         <div>
-          <h1>Birthdays and events, never miss anyone.</h1>
-          <p class="lead">Lahgog remembers everyone who matters to you, by the Hebrew or the Gregorian date, reminds you on time, and helps you plan and get ready.</p>
+          <h1>From the idea to the party, in one conversation.</h1>
+          <p class="lead">Tell the AI what you're planning and get a ready plan: dates, to-dos, guests and budget. And Lahgog remembers every birthday too, so you never miss anyone.</p>
           <div class="soon" role="status"><strong>Coming soon to Google Play</strong><span>Free download, for Android</span></div>
         </div>
-        <div class="cal" aria-label="Today on the calendar">
-          <div class="cal-posts" aria-hidden="true"><i></i><i></i></div>
-          <div class="cal-page">
-            <div class="cal-head" id="calWeekday">Today</div>
-            <div class="cal-day" id="calDay"></div>
-            <div class="cal-month" id="calMonth"></div>
-            <div class="cal-hebrew" id="calHebrew"></div>
-          </div>
-          <img class="cal-flame" src="/flame.svg" alt="" width="84" height="104" />
-        </div>
-      </section>
-
-      <section class="band alt" aria-labelledby="hebrew-title">
-        <div class="wrap hebrew">
-          <div>
-            <h2 id="hebrew-title">Hebrew birthdays, calculated right.</h2>
-            <p class="intro">A Hebrew-calendar birthday falls on a different Gregorian date every year. Lahgog works it out for you, including the cases everyone gets wrong:</p>
-            <ul class="cases">
-              <li><strong>Born after sunset</strong><span>The Hebrew date had already moved to the next day, and that's the one that counts.</span></li>
-              <li><strong>Adar I and Adar II</strong><span>In a leap year, everyone celebrates in the right month.</span></li>
-              <li><strong>The 30th of Heshvan or Kislev</strong><span>Even in years when the month has no 30th.</span></li>
+        <div class="chat" aria-label="An example planning conversation with the AI">
+          <div class="chat-head"><i aria-hidden="true">✨</i>Plan something</div>
+          <div class="bubble me step s1">Noa's 6th birthday, end of November, in the park</div>
+          <div class="bubble ai step s2">Fun! About how many kids?</div>
+          <div class="chips step s3"><span class="chip on">10–15</span><span class="chip">15–25</span><span class="chip">Not sure yet</span></div>
+          <div class="bubble ai step s4">Here's a plan:</div>
+          <div class="plan step s5">
+            <b>Noa's 6th birthday</b>
+            <ul>
+              <li>3 date options at the end of November</li>
+              <li>9 to-dos, from 3 weeks before</li>
+              <li>A budget in 5 lines</li>
             </ul>
+            <span class="go">Create the plan</span>
           </div>
-          <div class="counter" id="hanukkah">
-            <h3>Until Hanukkah</h3>
-            <p id="hanukkahDate"></p>
-            <div class="clock" id="hanukkahClock" aria-live="off">
-              <div><b id="hDays">0</b><small>days</small></div>
-              <div><b id="hHours">00</b><small>hours</small></div>
-              <div><b id="hMinutes">00</b><small>minutes</small></div>
-              <div id="hSecondsBox"><b id="hSeconds">00</b><small>seconds</small></div>
-            </div>
-            <p class="today" id="hanukkahToday" hidden>Happy Hanukkah! 🕎</p>
-            <p class="counter-note">Israeli holidays are in the app's calendar, and any event can be shared as a live countdown like this one.</p>
+        </div>
+      </section>
+    </div>
+
+    <main>
+      <section class="band organize" aria-labelledby="organize-title">
+        <div class="wrap">
+          <h2 id="organize-title">Everything organizers need, in one place.</h2>
+          <p class="intro">A plan is the backstage: only its organizers see it. Add up to 9 friends to organize with you, and start from a template for the kind of event.</p>
+          <div class="bento">
+            <article class="tile t-guests">
+              <h3>A guest list that works</h3>
+              <div class="counts">
+                <span><b>23</b>coming</span>
+                <span><b>4</b>maybe</span>
+                <span><b>6</b>no answer yet</span>
+              </div>
+              <ul class="guest-list">
+                <li>The Cohens<em>4 adults and 2 kids, no peanuts</em></li>
+                <li>Class 1B<em>12 kids</em></li>
+                <li>Dana<em>maybe</em></li>
+              </ul>
+              <p>Plus-ones, kids, food needs, and groups like a class or a family. Paste a ready list, and split the phone round between the organizers.</p>
+            </article>
+            <article class="tile t-timeline">
+              <h3>To-dos on a timeline</h3>
+              <ol class="steps">
+                <li><small>3 weeks before</small>Book the place</li>
+                <li><small>2 weeks before</small>Send invitations</li>
+                <li><small>3 days before</small>Confirm who's coming</li>
+                <li><small>The day before</small>Balloons and cake</li>
+              </ol>
+              <p>To-dos move with the date, and each one can be assigned to another organizer.</p>
+            </article>
+            <article class="tile t-budget">
+              <h3>Budget: planned vs actual</h3>
+              <div class="money">
+                <span class="h"></span><span class="h">Planned</span><span class="h">Actual</span>
+                <span>Venue</span><span>₪1,200</span><span class="paid">₪1,100</span>
+                <span>Entertainer</span><span>₪900</span><span class="paid">₪900</span>
+                <span>Cake</span><span>₪250</span><span class="paid">₪280</span>
+              </div>
+              <div class="bar" aria-hidden="true"><i></i></div>
+              <p>Who paid for what, and how to settle up at the end.</p>
+            </article>
+            <article class="tile t-vendors">
+              <h3>Vendors and payments</h3>
+              <div class="due">Entertainer deposit: <b>by Thursday</b></div>
+              <p>Quotes, deposits, balances and arrival times, with a reminder before each payment.</p>
+            </article>
+            <article class="tile t-day">
+              <h3>The day's schedule</h3>
+              <ul class="sched">
+                <li><b>16:00</b>Welcome</li>
+                <li><b>16:30</b>Entertainment</li>
+                <li><b>17:30</b>Cake and candles</li>
+              </ul>
+              <p>What happens when, and who's on it.</p>
+            </article>
+            <article class="tile t-team">
+              <h3>Organize together</h3>
+              <div class="faces" aria-hidden="true"><span style="background:#e84a2f">D</span><span style="background:#7b4fd6">Y</span><span style="background:#0f9f8f">M</span></div>
+              <p>One reminder a day per plan: what's still open, who hasn't answered, and what needs paying.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="band" aria-labelledby="what-title">
+      <section class="band ai" aria-labelledby="ai-title">
         <div class="wrap">
-          <h2 id="what-title">What you can do with it</h2>
-          <div class="rows">
-            <div class="row">
-              <div>
-                <h3>A reminder before it's too late</h3>
-                <p>The day before and on the day, or whenever you choose, for each person or each tag. Reminders arrive even without internet, and a home-screen widget shows who's next.</p>
-              </div>
-              <div class="demo" aria-label="An example notification">
-                <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🎂 Dana's 22nd birthday</b><span>Tomorrow</span></div></div>
-                <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🥂 10 years together: Dana and Daniel</b><span>Today 🎉</span></div></div>
-              </div>
-            </div>
-            <div class="row">
-              <div>
-                <h3>Write a sentence, and the event is ready</h3>
-                <p>"Dad's birthday on 10.4" fills in the form by itself. With an account, the AI also reads a screenshot of an invitation, plans an event with you, with a date and a to-do list, and writes wishes and gift ideas.</p>
-              </div>
-              <div class="demo" aria-label="An example of a sentence becoming an event">
-                <div class="typed">Dad's birthday on 10.4</div>
-                <dl class="filled">
-                  <dt>Type</dt><dd>Birthday 🎂</dd>
-                  <dt>Who</dt><dd>Dad</dd>
-                  <dt>When</dt><dd>10 April</dd>
-                </dl>
-              </div>
-            </div>
-            <div class="row">
-              <div>
-                <h3>Celebrate together</h3>
-                <p>Chats with friends and family, a vote on the date, who's coming and who brings what. Friends get your birthday only if you choose to share it.</p>
-              </div>
-              <div class="demo" aria-label="An example of an event in a chat">
-                <div class="event-head"><b>Friday dinner</b><span>Friday, 20:00</span></div>
-                <div class="going">✓ 9 coming</div>
-                <div class="chips"><span class="chip done">Cake: Dana</span><span class="chip done">Drinks: Daniel</span><span class="chip">Balloons</span></div>
-              </div>
-            </div>
+          <h2 id="ai-title">AI that saves you work.</h2>
+          <p class="intro">Ask, and it does. Nothing is saved until you approve it, and you can turn it off in Settings.</p>
+          <div class="ai-grid">
+            <article class="ai-card">
+              <h3>A sentence or a screenshot, and the event is ready</h3>
+              <div class="typed">Dad's birthday on 10.4</div>
+              <dl class="filled">
+                <dt>Type</dt><dd>Birthday 🎂</dd>
+                <dt>Who</dt><dd>Dad</dd>
+                <dt>When</dt><dd>10 April</dd>
+              </dl>
+              <p>A simple sentence works even without an account. With one, the AI also reads a screenshot of an invitation or a chat.</p>
+            </article>
+            <article class="ai-card">
+              <h3>A wish in a moment</h3>
+              <div class="wish">Happy birthday Dana! Here's to a year full of laughter, adventures and people who love you 💛</div>
+              <p>Three wishes to choose from, short, warm or funny, ready for WhatsApp.</p>
+            </article>
+            <article class="ai-card">
+              <h3>Gift ideas</h3>
+              <div class="gifts"><span>Pottery workshop</span><span>Cookbook</span><span>Escape room night</span><span>Photo album</span></div>
+              <p>Five ideas from your notes and tags, each saved with a tap.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="band alt" aria-labelledby="skins-title">
+      <section class="band together" aria-labelledby="together-title">
         <div class="wrap">
-          <h2 id="skins-title">A look that suits you</h2>
+          <h2 id="together-title">Decide together, show up together.</h2>
+          <p class="intro">Chats with friends and family, with everything you need to settle it: a vote on the date, who's coming and who brings what.</p>
+          <div class="together-grid">
+            <article class="event" aria-label="An example of an event in a chat">
+              <div class="event-head"><b>Friends' night</b><span>Vote on a date</span></div>
+              <div class="votes">
+                <div><span>Thu 20.11</span><i style="width:85%"></i><span>7</span></div>
+                <div><span>Fri 21.11</span><i style="width:40%"></i><span>3</span></div>
+              </div>
+              <div class="items"><span class="mine">Cake: Dana</span><span>Drinks: Daniel</span><span>Balloons</span><span>Plates</span></div>
+              <p>9 coming. Anyone who hasn't answered can get a reminder with one tap.</p>
+            </article>
+            <article class="counter" id="hanukkah">
+              <h3>Until Hanukkah</h3>
+              <p id="hanukkahDate"></p>
+              <div class="clock" id="hanukkahClock" aria-live="off">
+                <div><b id="hDays">0</b><small>days</small></div>
+                <div><b id="hHours">00</b><small>hours</small></div>
+                <div><b id="hMinutes">00</b><small>minutes</small></div>
+                <div id="hSecondsBox"><b id="hSeconds">00</b><small>seconds</small></div>
+              </div>
+              <p class="today" id="hanukkahToday" hidden>Happy Hanukkah! 🕎</p>
+              <p class="note">Any event can be shared as a live countdown like this one, still ticking for whoever gets it.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band remember" aria-labelledby="remember-title">
+        <div class="wrap remember-grid">
+          <div>
+            <h2 id="remember-title">And nobody gets forgotten.</h2>
+            <ul class="points">
+              <li><strong>Reminders on time</strong><span>The day before and on the day, or whenever you choose, even without internet.</span></li>
+              <li><strong>By the Hebrew date too</strong><span>Adar I and Adar II included, and births after sunset.</span></li>
+              <li><strong>A home-screen widget</strong><span>Who's next, without opening the app.</span></li>
+            </ul>
+            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🎂 Dana's 22nd birthday</b><span>Tomorrow</span></div></div>
+            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🥂 10 years together: Dana and Daniel</b><span>Today 🎉</span></div></div>
+          </div>
+          <div class="cal" aria-label="Today on the calendar">
+            <div class="cal-posts" aria-hidden="true"><i></i><i></i></div>
+            <div class="cal-page">
+              <div class="cal-head" id="calWeekday">Today</div>
+              <div class="cal-day" id="calDay"></div>
+              <div class="cal-month" id="calMonth"></div>
+              <div class="cal-hebrew" id="calHebrew"></div>
+            </div>
+            <img class="cal-flame" src="/flame.svg" alt="" width="76" height="94" />
+          </div>
+        </div>
+      </section>
+
+      <section class="band" aria-labelledby="skins-title">
+        <div class="wrap">
+          <h2 id="skins-title">A look that suits you.</h2>
           <p class="intro">A skin colors the whole app, widget included. Some skins are paid, and that's shown before any purchase.</p>
           <ul class="skins">
             <li><i style="--sbg:#FCFAF7;--sac:#E84A2F"></i>Classic</li>
@@ -167,15 +252,15 @@
         <div class="wrap">
           <h2 id="privacy-title">Your list stays yours.</h2>
           <ul class="facts">
-            <li>Without an account, everything stays on your phone.</li>
+            <li>Without an account, your list and reminders stay on your phone.</li>
             <li>No tracking tools, and no selling of data.</li>
-            <li>An account is your choice: for friends, chats, the cloud copy and AI.</li>
+            <li>The AI runs only when you ask, and you can turn it off.</li>
           </ul>
-          <a href="/privacy#en">Privacy policy</a>
+          <a class="more" href="/privacy#en">Privacy policy</a>
         </div>
       </section>
 
-      <section class="band alt" aria-labelledby="faq-title">
+      <section class="band" aria-labelledby="faq-title">
         <div class="wrap faq">
           <h2 id="faq-title">Questions</h2>
           <details>
@@ -184,7 +269,11 @@
           </details>
           <details>
             <summary>Do I need an account?</summary>
-            <p>No. Without an account everything works on your phone. An account is needed only for friends, chats, the cloud copy and AI.</p>
+            <p>Your list and reminders work without one, on your phone only. Plans, AI, friends, chats and the cloud copy need an account.</p>
+          </details>
+          <details>
+            <summary>Do guests need the app?</summary>
+            <p>No. The organizers manage the guest list, and only they need the app.</p>
           </details>
           <details>
             <summary>Is there an iPhone version?</summary>
@@ -192,11 +281,7 @@
           </details>
           <details>
             <summary>What does the AI see?</summary>
-            <p>The AI runs only when you ask, and the app explains what is sent before the first use. You can turn it off in Settings. Details are in the <a href="/privacy#en">privacy policy</a>.</p>
-          </details>
-          <details>
-            <summary>Can I rely on the Hebrew dates?</summary>
-            <p>They follow the standard Hebrew calendar, Adar I and Adar II included. For dates with religious meaning, such as a memorial or a bar mitzvah, check with an authoritative source.</p>
+            <p>Only what the request needs, and only when you ask. The app explains what is sent before the first use. Details are in the <a href="/privacy#en">privacy policy</a>.</p>
           </details>
           <details>
             <summary>Is the app in English?</summary>
@@ -204,12 +289,14 @@
           </details>
         </div>
       </section>
-
-      <section class="wrap closing">
-        <h2>Birthdays and events, never miss anyone.</h2>
-        <div class="soon" role="status"><strong>Coming soon to Google Play</strong><span>Free download, for Android</span></div>
-      </section>
     </main>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="wrap">
+        <h2 id="closing-title">Your next event can start right now.</h2>
+        <div class="soon" role="status"><strong>Coming soon to Google Play</strong><span>Free download, for Android</span></div>
+      </div>
+    </section>
 
     <footer class="wrap foot">
       <nav aria-label="Links">

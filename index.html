@@ -3,24 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>לחגוג: תזכורות לימי הולדת ואירועים, גם לפי התאריך העברי</title>
-    <meta name="description" content="אפליקציה לימי הולדת ואירועים: תזכורות בזמן, יום הולדת עברי מחושב נכון, AI שעוזר לתכנן ולהתכונן, וצ׳אטים עם מי מגיע ומי מביא מה. הורדה חינם לאנדרואיד." />
+    <title>לחגוג: לתכנן אירוע עם AI, ולא לפספס אף יום הולדת</title>
+    <meta name="description" content="מתכננים מסיבה, יום הולדת או ארוחה משפחתית? מספרים ל-AI מה רוצים ומקבלים תוכנית: תאריכים, משימות, אורחים, תקציב וספקים. ולחגוג גם זוכרת את כל ימי ההולדת. הורדה חינם לאנדרואיד." />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#E84A2F" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1A1220" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#24152F" />
     <link rel="canonical" href="https://lahgog.app/" />
     <link rel="alternate" hreflang="he" href="https://lahgog.app/" />
     <link rel="alternate" hreflang="en" href="https://lahgog.app/en" />
     <link rel="alternate" hreflang="x-default" href="https://lahgog.app/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="לחגוג" />
-    <meta property="og:title" content="לחגוג: ימי הולדת ואירועים, בלי לפספס אף אחד" />
-    <meta property="og:description" content="תזכורות בזמן, התאריך העברי מחושב נכון, ועזרה בתכנון ובהכנות." />
+    <meta property="og:title" content="לחגוג: מהרעיון ועד המסיבה, בשיחה אחת" />
+    <meta property="og:description" content="תוכנית לאירוע עם AI, כלים למארגנים, צ׳אטים עם מי מגיע ומי מביא מה, ותזכורות לכל ימי ההולדת." />
     <meta property="og:url" content="https://lahgog.app/" />
     <meta property="og:image" content="https://lahgog.app/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="דף לוח שנה של לחגוג עם התאריך הלועזי והעברי ונר דולק" />
+    <meta property="og:image:alt" content="לחגוג: מהרעיון ועד המסיבה, בשיחה אחת" />
     <meta property="og:locale" content="he_IL" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -45,102 +44,188 @@
   </head>
   <body>
     <a class="skip" href="#main">דילוג לתוכן</a>
-    <header class="wrap top">
-      <a class="mark" href="/"><img src="/icon.svg" alt="" width="38" height="38" />לחגוג</a>
-      <a class="lang" href="/en" lang="en" hreflang="en">English</a>
-    </header>
 
-    <main id="main">
-      <section class="wrap hero">
+    <div class="stage">
+      <header class="wrap top">
+        <a class="mark" href="/"><img src="/icon.svg" alt="" width="40" height="40" />לחגוג</a>
+        <a class="lang" href="/en" lang="en" hreflang="en">English</a>
+      </header>
+      <section class="wrap hero" id="main">
         <div>
-          <h1>ימי הולדת ואירועים, בלי לפספס אף אחד.</h1>
-          <p class="lead">לחגוג זוכרת בשבילכם את כל מי שחשוב לכם, לפי התאריך העברי או הלועזי, מזכירה בזמן, ועוזרת לתכנן ולהתכונן.</p>
+          <h1>מהרעיון ועד המסיבה, בשיחה אחת.</h1>
+          <p class="lead">ספרו ל-AI מה אתם מתכננים וקבלו תוכנית מוכנה: תאריכים, משימות, אורחים ותקציב. ולחגוג גם זוכרת את כל ימי ההולדת, כדי שלא תפספסו אף אחד.</p>
           <div class="soon" role="status"><strong>בקרוב ב-<bdi>Google Play</bdi></strong><span>הורדה חינם, לאנדרואיד</span></div>
         </div>
-        <div class="cal" aria-label="היום בלוח השנה">
-          <div class="cal-posts" aria-hidden="true"><i></i><i></i></div>
-          <div class="cal-page">
-            <div class="cal-head" id="calWeekday">היום</div>
-            <div class="cal-day" id="calDay"></div>
-            <div class="cal-month" id="calMonth"></div>
-            <div class="cal-hebrew" id="calHebrew"></div>
-          </div>
-          <img class="cal-flame" src="/flame.svg" alt="" width="84" height="104" />
-        </div>
-      </section>
-
-      <section class="band alt" aria-labelledby="hebrew-title">
-        <div class="wrap hebrew">
-          <div>
-            <h2 id="hebrew-title">יום הולדת עברי, מחושב נכון.</h2>
-            <p class="intro">יום הולדת לפי הלוח העברי נופל בכל שנה בתאריך לועזי אחר. לחגוג מחשבת אותו בשבילכם, כולל המקרים שבהם כולם מתבלבלים:</p>
-            <ul class="cases">
-              <li><strong>נולדים אחרי השקיעה</strong><span>התאריך העברי כבר עבר ליום הבא, וזה מה שנספר.</span></li>
-              <li><strong>אדר א׳ ואדר ב׳</strong><span>בשנה מעוברת, כל אחד חוגג בחודש הנכון.</span></li>
-              <li><strong>ל׳ בחשוון ול׳ בכסלו</strong><span>גם בשנים שבהן אין בחודש יום שלושים.</span></li>
+        <div class="chat" aria-label="דוגמה לשיחת תכנון עם ה-AI">
+          <div class="chat-head"><i aria-hidden="true">✨</i>לתכנן משהו</div>
+          <div class="bubble me step s1">יום הולדת 6 לנועה, בסוף נובמבר, בגינה</div>
+          <div class="bubble ai step s2">איזה כיף! כמה ילדים בערך?</div>
+          <div class="chips step s3"><span class="chip on"><bdi dir="ltr">10–15</bdi></span><span class="chip"><bdi dir="ltr">15–25</bdi></span><span class="chip">עוד לא יודע/ת</span></div>
+          <div class="bubble ai step s4">הנה תוכנית:</div>
+          <div class="plan step s5">
+            <b>יום הולדת 6 לנועה</b>
+            <ul>
+              <li>3 אפשרויות תאריך בסוף נובמבר</li>
+              <li>9 משימות, מ-3 שבועות לפני</li>
+              <li>תקציב ב-5 שורות</li>
             </ul>
+            <span class="go">ליצור את התוכנית</span>
           </div>
-          <div class="counter" id="hanukkah">
-            <h3>עד חנוכה</h3>
-            <p id="hanukkahDate"></p>
-            <div class="clock" id="hanukkahClock" aria-live="off">
-              <div><b id="hDays">0</b><small>ימים</small></div>
-              <div><b id="hHours">00</b><small>שעות</small></div>
-              <div><b id="hMinutes">00</b><small>דקות</small></div>
-              <div id="hSecondsBox"><b id="hSeconds">00</b><small>שניות</small></div>
-            </div>
-            <p class="today" id="hanukkahToday" hidden>חנוכה שמח! 🕎</p>
-            <p class="counter-note">חגי ישראל מופיעים בלוח השנה באפליקציה, וכל אירוע אפשר לשתף כספירה לאחור חיה כמו זו.</p>
+        </div>
+      </section>
+    </div>
+
+    <main>
+      <section class="band organize" aria-labelledby="organize-title">
+        <div class="wrap">
+          <h2 id="organize-title">כל מה שהמארגנים צריכים, במקום אחד.</h2>
+          <p class="intro">התוכנית היא מאחורי הקלעים: רק המארגנים רואים אותה. אפשר לצרף עד 9 חברים לארגן יחד, ולהתחיל מתבנית לפי סוג האירוע.</p>
+          <div class="bento">
+            <article class="tile t-guests">
+              <h3>רשימת אורחים שעובדת</h3>
+              <div class="counts">
+                <span><b>23</b>מגיעים</span>
+                <span><b>4</b>אולי</span>
+                <span><b>6</b>עוד לא ענו</span>
+              </div>
+              <ul class="guest-list">
+                <li>משפחת כהן<em>4 מבוגרים ו-2 ילדים, בלי בוטנים</em></li>
+                <li>כיתה א׳2<em>12 ילדים</em></li>
+                <li>דנה<em>אולי</em></li>
+              </ul>
+              <p>מלווים, ילדים, צרכי אוכל וקבוצות כמו כיתה או משפחה. אפשר להדביק רשימה מוכנה, ולחלק בין המארגנים את סבב הטלפונים.</p>
+            </article>
+            <article class="tile t-timeline">
+              <h3>משימות לפי לוח זמנים</h3>
+              <ol class="steps">
+                <li><small>3 שבועות לפני</small>להזמין מקום</li>
+                <li><small>שבועיים לפני</small>לשלוח הזמנות</li>
+                <li><small>3 ימים לפני</small>לאשר מי מגיע</li>
+                <li><small>יום לפני</small>בלונים ועוגה</li>
+              </ol>
+              <p>המשימות זזות עם התאריך, וכל אחת אפשר להקצות למארגן אחר.</p>
+            </article>
+            <article class="tile t-budget">
+              <h3>תקציב: מתוכנן מול בפועל</h3>
+              <div class="money">
+                <span class="h"></span><span class="h">תכנון</span><span class="h">בפועל</span>
+                <span>מקום</span><span>₪1,200</span><span class="paid">₪1,100</span>
+                <span>הפעלה</span><span>₪900</span><span class="paid">₪900</span>
+                <span>עוגה</span><span>₪250</span><span class="paid">₪280</span>
+              </div>
+              <div class="bar" aria-hidden="true"><i></i></div>
+              <p>מי שילם מה, ואיך מתחשבנים בסוף.</p>
+            </article>
+            <article class="tile t-vendors">
+              <h3>ספקים ותשלומים</h3>
+              <div class="due">מקדמה למפעיל: <b>עד יום חמישי</b></div>
+              <p>הצעות מחיר, מקדמות, יתרות ושעת הגעה, עם תזכורת לפני כל תשלום.</p>
+            </article>
+            <article class="tile t-day">
+              <h3>סדר היום</h3>
+              <ul class="sched">
+                <li><b>16:00</b>קבלת פנים</li>
+                <li><b>16:30</b>הפעלה</li>
+                <li><b>17:30</b>עוגה ונרות</li>
+              </ul>
+              <p>מה קורה בכל שעה, ומי אחראי.</p>
+            </article>
+            <article class="tile t-team">
+              <h3>מארגנים יחד</h3>
+              <div class="faces" aria-hidden="true"><span style="background:#e84a2f">ד</span><span style="background:#7b4fd6">י</span><span style="background:#0f9f8f">מ</span></div>
+              <p>תזכורת אחת ביום לכל תוכנית: מה עוד פתוח, מי לא ענה, ומה צריך לשלם.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="band" aria-labelledby="what-title">
+      <section class="band ai" aria-labelledby="ai-title">
         <div class="wrap">
-          <h2 id="what-title">מה עושים איתה</h2>
-          <div class="rows">
-            <div class="row">
-              <div>
-                <h3>תזכורת לפני שמאוחר מדי</h3>
-                <p>יום לפני וביום עצמו, או מתי שתבחרו, לכל אחד או לכל תגית. התזכורות מגיעות גם בלי אינטרנט, ווידג׳ט במסך הבית מראה מי הבא בתור.</p>
-              </div>
-              <div class="demo" aria-label="דוגמה להתראה">
-                <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🎂 יום הולדת 22 של דנה</b><span>מחר</span></div></div>
-                <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🥂 10 שנים יחד: דנה ודניאל</b><span>היום 🎉</span></div></div>
-              </div>
-            </div>
-            <div class="row">
-              <div>
-                <h3>כותבים משפט, והאירוע מוכן</h3>
-                <p>"יום הולדת לאבא ב-10.4" ממלא את הטופס לבד. עם חשבון, ה-AI קורא גם צילום מסך של הזמנה, מתכנן איתכם אירוע עם תאריך ורשימת משימות, וכותב ברכות ורעיונות למתנה.</p>
-              </div>
-              <div class="demo" aria-label="דוגמה למשפט שהופך לאירוע">
-                <div class="typed">יום הולדת לאבא ב-10.4</div>
-                <dl class="filled">
-                  <dt>סוג</dt><dd>יום הולדת 🎂</dd>
-                  <dt>מי</dt><dd>אבא</dd>
-                  <dt>מתי</dt><dd>10 באפריל</dd>
-                </dl>
-              </div>
-            </div>
-            <div class="row">
-              <div>
-                <h3>חוגגים ביחד</h3>
-                <p>צ׳אטים עם החברים והמשפחה, הצבעה על תאריך, מי מגיע ומי מביא מה. חברים מקבלים את יום ההולדת שלכם רק אם בחרתם לשתף.</p>
-              </div>
-              <div class="demo" aria-label="דוגמה לאירוע בצ׳אט">
-                <div class="event-head"><b>ארוחת שישי</b><span>יום שישי, 20:00</span></div>
-                <div class="going">✓ 9 מגיעים</div>
-                <div class="chips"><span class="chip done">עוגה: דנה</span><span class="chip done">שתייה: דניאל</span><span class="chip">בלונים</span></div>
-              </div>
-            </div>
+          <h2 id="ai-title">AI שחוסך לכם עבודה.</h2>
+          <p class="intro">מבקשים, והוא עושה. שום דבר לא נשמר בלי שאישרתם, ואפשר לכבות אותו בהגדרות.</p>
+          <div class="ai-grid">
+            <article class="ai-card">
+              <h3>משפט או צילום מסך, והאירוע מוכן</h3>
+              <div class="typed">יום הולדת לאבא ב-10.4</div>
+              <dl class="filled">
+                <dt>סוג</dt><dd>יום הולדת 🎂</dd>
+                <dt>מי</dt><dd>אבא</dd>
+                <dt>מתי</dt><dd>10 באפריל</dd>
+              </dl>
+              <p>משפט פשוט מתפרש גם בלי חשבון. עם חשבון, ה-AI קורא גם צילום של הזמנה או של צ׳אט.</p>
+            </article>
+            <article class="ai-card">
+              <h3>ברכה ברגע</h3>
+              <div class="wish">מזל טוב דנה! שתהיה לך שנה מלאה בצחוק, בהרפתקאות ובאנשים שאוהבים אותך 💛</div>
+              <p>שלוש ברכות לבחירה, קצרה, חמה או מצחיקה, לשליחה בוואטסאפ.</p>
+            </article>
+            <article class="ai-card">
+              <h3>רעיונות למתנה</h3>
+              <div class="gifts"><span>סדנת קרמיקה</span><span>ספר מתכונים</span><span>ערב חדר בריחה</span><span>אלבום תמונות</span></div>
+              <p>חמישה רעיונות מתוך ההערות והתגיות שלכם, וכל אחד נשמר בלחיצה.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="band alt" aria-labelledby="skins-title">
+      <section class="band together" aria-labelledby="together-title">
         <div class="wrap">
-          <h2 id="skins-title">עיצוב שמתאים לכם</h2>
+          <h2 id="together-title">מחליטים ביחד, מגיעים ביחד.</h2>
+          <p class="intro">צ׳אטים עם חברים ומשפחה, עם כל מה שצריך כדי לקבוע: הצבעה על תאריך, מי מגיע ומי מביא מה.</p>
+          <div class="together-grid">
+            <article class="event" aria-label="דוגמה לאירוע בצ׳אט">
+              <div class="event-head"><b>ערב חברים</b><span>הצבעה על תאריך</span></div>
+              <div class="votes">
+                <div><span>חמישי 20.11</span><i style="width:85%"></i><span>7</span></div>
+                <div><span>שישי 21.11</span><i style="width:40%"></i><span>3</span></div>
+              </div>
+              <div class="items"><span class="mine">עוגה: דנה</span><span>שתייה: דניאל</span><span>בלונים</span><span>צלחות</span></div>
+              <p>9 מגיעים. למי שעוד לא ענה אפשר לשלוח תזכורת בנגיעה.</p>
+            </article>
+            <article class="counter" id="hanukkah">
+              <h3>עד חנוכה</h3>
+              <p id="hanukkahDate"></p>
+              <div class="clock" id="hanukkahClock" aria-live="off">
+                <div><b id="hDays">0</b><small>ימים</small></div>
+                <div><b id="hHours">00</b><small>שעות</small></div>
+                <div><b id="hMinutes">00</b><small>דקות</small></div>
+                <div id="hSecondsBox"><b id="hSeconds">00</b><small>שניות</small></div>
+              </div>
+              <p class="today" id="hanukkahToday" hidden>חנוכה שמח! 🕎</p>
+              <p class="note">כל אירוע אפשר לשתף כספירה לאחור חיה כמו זו, שממשיכה לרוץ גם אצל מי שקיבל.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="band remember" aria-labelledby="remember-title">
+        <div class="wrap remember-grid">
+          <div>
+            <h2 id="remember-title">ואף אחד לא נשכח.</h2>
+            <ul class="points">
+              <li><strong>תזכורות בזמן</strong><span>יום לפני וביום עצמו, או מתי שתבחרו, גם בלי אינטרנט.</span></li>
+              <li><strong>גם לפי התאריך העברי</strong><span>כולל אדר א׳ ואדר ב׳, ומי שנולד אחרי השקיעה.</span></li>
+              <li><strong>ווידג׳ט למסך הבית</strong><span>מי הבא בתור, בלי לפתוח את האפליקציה.</span></li>
+            </ul>
+            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🎂 יום הולדת 22 של דנה</b><span>מחר</span></div></div>
+            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🥂 10 שנים יחד: דנה ודניאל</b><span>היום 🎉</span></div></div>
+          </div>
+          <div class="cal" aria-label="היום בלוח השנה">
+            <div class="cal-posts" aria-hidden="true"><i></i><i></i></div>
+            <div class="cal-page">
+              <div class="cal-head" id="calWeekday">היום</div>
+              <div class="cal-day" id="calDay"></div>
+              <div class="cal-month" id="calMonth"></div>
+              <div class="cal-hebrew" id="calHebrew"></div>
+            </div>
+            <img class="cal-flame" src="/flame.svg" alt="" width="76" height="94" />
+          </div>
+        </div>
+      </section>
+
+      <section class="band" aria-labelledby="skins-title">
+        <div class="wrap">
+          <h2 id="skins-title">עיצוב שמתאים לכם.</h2>
           <p class="intro">העיצוב צובע את כל האפליקציה, כולל הווידג׳ט. חלק מהעיצובים בתשלום, וזה מוצג לפני כל רכישה.</p>
           <ul class="skins">
             <li><i style="--sbg:#FCFAF7;--sac:#E84A2F"></i>קלאסי</li>
@@ -167,15 +252,15 @@
         <div class="wrap">
           <h2 id="privacy-title">הרשימה שלכם נשארת שלכם.</h2>
           <ul class="facts">
-            <li>בלי חשבון, הכול נשמר רק בטלפון.</li>
+            <li>בלי חשבון, הרשימה והתזכורות נשמרות רק בטלפון.</li>
             <li>בלי כלי מעקב, ובלי מכירה של מידע.</li>
-            <li>חשבון הוא בחירה: לחברים, לצ׳אטים, לגיבוי בענן ול-AI.</li>
+            <li>ה-AI פועל רק כשמבקשים ממנו, ואפשר לכבות אותו.</li>
           </ul>
-          <a href="/privacy">למדיניות הפרטיות</a>
+          <a class="more" href="/privacy">למדיניות הפרטיות</a>
         </div>
       </section>
 
-      <section class="band alt" aria-labelledby="faq-title">
+      <section class="band" aria-labelledby="faq-title">
         <div class="wrap faq">
           <h2 id="faq-title">שאלות</h2>
           <details>
@@ -184,7 +269,11 @@
           </details>
           <details>
             <summary>צריך חשבון?</summary>
-            <p>לא. בלי חשבון הכול עובד בטלפון. חשבון נדרש רק לחברים, לצ׳אטים, לגיבוי בענן ול-AI.</p>
+            <p>הרשימה והתזכורות עובדות גם בלי חשבון, בטלפון בלבד. תוכניות, AI, חברים, צ׳אטים וגיבוי בענן צריכים חשבון.</p>
+          </details>
+          <details>
+            <summary>האורחים צריכים את האפליקציה?</summary>
+            <p>לא. את רשימת האורחים מנהלים המארגנים, ורק הם צריכים את האפליקציה.</p>
           </details>
           <details>
             <summary>יש לאייפון?</summary>
@@ -192,20 +281,22 @@
           </details>
           <details>
             <summary>מה ה-AI רואה?</summary>
-            <p>ה-AI פועל רק כשמבקשים ממנו, ולפני השימוש הראשון מוסבר מה נשלח. אפשר לכבות אותו בהגדרות. הפרטים ב<a href="/privacy#p6">מדיניות הפרטיות</a>.</p>
+            <p>רק מה שנדרש לבקשה, ורק כשמבקשים. לפני השימוש הראשון מוסבר מה נשלח. הפרטים ב<a href="/privacy#p6">מדיניות הפרטיות</a>.</p>
           </details>
           <details>
             <summary>אפשר לסמוך על התאריכים העבריים?</summary>
-            <p>החישוב נעשה לפי הלוח העברי המקובל, כולל אדר א׳ ואדר ב׳. במועדים שיש להם משמעות דתית, כמו אזכרה או בר מצווה, כדאי לאמת מול מקור מוסמך.</p>
+            <p>החישוב נעשה לפי הלוח העברי המקובל. במועדים שיש להם משמעות דתית, כמו אזכרה או בר מצווה, כדאי לאמת מול מקור מוסמך.</p>
           </details>
         </div>
       </section>
-
-      <section class="wrap closing">
-        <h2>ימי הולדת ואירועים, בלי לפספס אף אחד.</h2>
-        <div class="soon" role="status"><strong>בקרוב ב-<bdi>Google Play</bdi></strong><span>הורדה חינם, לאנדרואיד</span></div>
-      </section>
     </main>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="wrap">
+        <h2 id="closing-title">האירוע הבא שלכם יכול להתחיל כבר עכשיו.</h2>
+        <div class="soon" role="status"><strong>בקרוב ב-<bdi>Google Play</bdi></strong><span>הורדה חינם, לאנדרואיד</span></div>
+      </div>
+    </section>
 
     <footer class="wrap foot">
       <nav aria-label="קישורים">
