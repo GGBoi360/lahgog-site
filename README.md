@@ -12,14 +12,17 @@ serves for every path without a file: `/j/<code>`, `/i/<code>`, `/f/<code>`, `/a
 
 ## Guest pages (since 2026-10-26)
 
-`/p/<token>` (a plan's guests, R105) and `/g/<token>` (a chat event's guests, R51) are also served by `404.html`, which
-loads `guest.js`. A guest without the app sees what the server function returns (`plan_guest_view` / `guest_event`)
+`/p/?t=<token>` (a plan's guests, R105) and `/g/?t=<token>` (a chat event's guests, R51) are real files
+(`p/index.html`, `g/index.html`, identical except `og:url`) that load `guest.js`. They are files, not 404 routes, so
+link previews (WhatsApp) get HTTP 200 and a generic invite card (`og-invite.png`, template `.preview/og-invite.html`);
+the card never holds event details. The older `/p/<token>` form (app builds before 2026-10-26) reaches `404.html`,
+which forwards it to `/p/?t=<token>`. A guest without the app sees what the server function returns (`plan_guest_view` / `guest_event`)
 and answers with a name, going/maybe/not and plus-ones (`plan_guest_rsvp` / `guest_rsvp`, Supabase REST with the
 public anon key; access is decided by those functions). The key for changing the answer stays in the browser's
 localStorage (`lahgog.guest.<token>`); the server keeps only its hash. The privacy notice above the button is required
 (Privacy Protection Law s.11): what is kept, who sees it, that it's voluntary, how long, and a link to privacy
 `#guests`. Unknown or turned-off links show "not found". Test without real tokens: `.preview/guest-*.html` are built
-from `404.html` with `fetch` stubbed (scratchpad `mkmock.cjs`).
+from `p/index.html` with `fetch` stubbed (scratchpad `mkmock.cjs`).
 
 ## Landing page (since 2026-10-26)
 

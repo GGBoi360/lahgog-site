@@ -136,3 +136,4 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .g-answers input { width: 20px; height: 20px; accent-color: var(--coral); }
 .g-privacy { font-size: 13px; color: var(--muted); margin: 18px 0 12px; line-height: 1.5; }
 .g-error { color: #c4381f; font-weight: 500; }
+.brand a { color: inherit; text-decoration: none; }

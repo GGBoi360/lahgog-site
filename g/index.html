@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>הוזמנתם לאירוע | לחגוג</title>
+    <meta name="description" content="פרטי האירוע ואישור הגעה, בלי אפליקציה ובלי הרשמה." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="לחגוג" />
+    <meta property="og:title" content="הוזמנתם לאירוע 🎉" />
+    <meta property="og:description" content="פתחו לפרטים ולאישור הגעה. בלי אפליקציה ובלי הרשמה." />
+    <meta property="og:url" content="https://lahgog.app/g/" />
+    <meta property="og:image" content="https://lahgog.app/og-invite.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="הוזמנתם לאירוע בלחגוג" />
+    <meta property="og:locale" content="he_IL" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#E84A2F" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!--
+      A guest page: someone without the app answers an invitation (guest.js). /p/?t=<token> is a plan's (R105),
+      /g/?t=<token> a chat event's (R51); the two files differ only in their preview texts. They are real files so
+      link previews (WhatsApp and the like) get a 200 and the tags above. The preview is generic on purpose: the
+      event's details are only fetched by the page itself. 404.html forwards the older /p/<token> form here.
+    -->
+    <main>
+      <h1 class="brand"><a href="/">לחגוג</a></h1>
+      <section class="card guest" id="guest" hidden>
+        <p id="gLoading">טוען את ההזמנה…</p>
+        <div id="gBody" hidden>
+          <h2 id="gTitle"></h2>
+          <p class="g-when" id="gWhen"></p>
+          <p id="gPlace" hidden></p>
+          <p id="gHosts" hidden></p>
+          <p class="g-notes" id="gNotes" hidden></p>
+          <p class="g-going" id="gGoing"></p>
+          <form id="gForm" novalidate>
+            <label class="g-label" for="gName">השם שלכם</label>
+            <input class="g-input" id="gName" name="name" type="text" maxlength="60" autocomplete="name" required />
+            <fieldset class="g-answers">
+              <legend class="g-label">מגיעים?</legend>
+              <label><input type="radio" name="gAnswer" value="going" /> מגיע/ה</label>
+              <label><input type="radio" name="gAnswer" value="maybe" /> אולי</label>
+              <label><input type="radio" name="gAnswer" value="no" /> לא מגיע/ה</label>
+            </fieldset>
+            <label class="g-label" for="gPlus">כמה מגיעים איתכם?</label>
+            <input class="g-input g-plus" id="gPlus" name="plus" type="number" min="0" max="20" value="0" inputmode="numeric" />
+            <p class="g-privacy">השם והתשובה יישמרו אצלנו ויוצגו ל<span id="gWho"></span>, כדי שיידעו מי מגיע. המסירה רשות. הם נשמרים עד שהאירוע נמחק או שמסירים אתכם ממנו, והדפדפן שומר מפתח לשינוי התשובה. לעיון או למחיקה: <a href="mailto:support@lahgog.app">support@lahgog.app</a>. <a href="/privacy#guests">מדיניות הפרטיות</a></p>
+            <p class="g-error" id="gError" role="alert" hidden></p>
+            <button class="button" id="gSubmit" type="submit">שליחת התשובה</button>
+            <p class="note" id="gDone" role="status" hidden>כבר עניתם מהמכשיר הזה. אפשר לעדכן את התשובה.</p>
+          </form>
+        </div>
+      </section>
+      <section class="card" id="missing" hidden>
+        <h2>ההזמנה לא נמצאה</h2>
+        <p>אולי הקישור נקטע בדרך, או שהמארגנים כיבו אותו.</p>
+        <a class="button secondary" href="/">לדף הבית</a>
+      </section>
+    </main>
+    <footer>לחגוג · <a href="/privacy">פרטיות</a> · <a href="/terms">תנאי שימוש</a> · <a href="/accessibility">הצהרת נגישות</a></footer>
+    <script src="/guest.js"></script>
+    <script>
+      (function () {
+        var kind = location.pathname.split('/')[1];
+        var t = /[?&]t=([A-Za-z0-9]{24})(?:&|$)/.exec(location.search);
+        var missing = function () { document.getElementById('missing').hidden = false; };
+        if ((kind !== 'p' && kind !== 'g') || !t || !window.LahgogGuest) return missing();
+        window.LahgogGuest.show(kind, t[1], missing);
+      })();
+    </script>
+  </body>
+</html>
