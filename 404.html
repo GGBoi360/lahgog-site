@@ -6,56 +6,18 @@
     <title>לחגוג</title>
     <meta name="theme-color" content="#E84A2F" />
     <meta name="robots" content="noindex" />
-    <!-- One generic card for every link this page serves; previews get a 404 here, so the guest pages are real files. -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="לחגוג" />
-    <meta property="og:title" content="בואו לחגוג ביחד 🎉" />
-    <meta property="og:description" content="קיבלתם הזמנה בלחגוג: ימי הולדת, אירועים וצ׳אטים עם מי שחוגגים איתם." />
-    <meta property="og:image" content="https://lahgog.app/og.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="he_IL" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <!--
-      The invite page. Every link the app shares (src/features/sharing/inviteLinks.ts) lands here when the app didn't
-      open it: /j/<code> a chat, /i/<code> an invite to the app, /f/<code> a friend, /a?d=… an event, /l?d=… a list.
-      On a phone with the app (lahgog.app verified through /.well-known/assetlinks.json) the app opens instead and
-      this page is never seen. On Android without the app it sends the visitor to Google Play with the invite in the
-      install referrer ("lahgog=<path and query>"), so the app can open the invite on its first launch (deferred deep
-      link). GitHub Pages serves this page for any path without a file (it's the 404 page); anything that isn't one
-      of our links shows "not found". /c?d=… is a live countdown (countdown.js); /p/<token> and /g/<token> (the older
-      form of the guest links) are forwarded to the guest pages p/index.html and g/index.html.
+      GitHub Pages serves this page for any path without a file. Every link the app shares is a real file now
+      (invite.js, guest.js); this page only forwards the older path forms that app versions before 2026-10-26 shared
+      (/j/<code>, /i/<code>, /f/<code> to /j/?c=<code>; /p/<token>, /g/<token> to /p/?t=<token>). Anything else is
+      "not found".
     -->
     <main>
-      <h1 class="brand">לחגוג</h1>
-      <section class="card" id="invite" hidden>
-        <h2 id="title"></h2>
-        <p id="text"></p>
-        <a class="button" id="play" href="https://play.google.com/store/apps/details?id=com.lahgog.app">להורדה מ-Google Play</a>
-        <p class="note" id="after">אחרי ההתקנה ההזמנה תיפתח באפליקציה.</p>
-        <p class="note" id="iosNote" hidden>לחגוג זמינה כרגע לאנדרואיד.</p>
-        <div id="codeBox" hidden>
-          <p>או להקליד באפליקציה את הקוד:</p>
-          <div class="code" id="code"></div>
-          <button class="button secondary" id="copy" type="button" hidden>העתקת הקוד</button>
-        </div>
-      </section>
-      <section class="card countdown" id="countdown" hidden>
-        <h2 id="cdTitle"></h2>
-        <p id="cdWhen"></p>
-        <div class="clock" id="cdClock" hidden aria-live="off">
-          <div><span id="cdDays">0</span><small>ימים</small></div>
-          <div><span id="cdHours">00</span><small>שעות</small></div>
-          <div><span id="cdMinutes">00</span><small>דקות</small></div>
-          <div><span id="cdSeconds">00</span><small>שניות</small></div>
-        </div>
-        <p class="today" id="cdToday" hidden>זה היום! 🎉</p>
-        <a class="button" id="cdPlay" href="https://play.google.com/store/apps/details?id=com.lahgog.app">לחגוג ב-Google Play</a>
-        <p class="note" id="cdNote">באפליקציה אפשר להוסיף את האירוע ללוח ולקבל תזכורת.</p>
-      </section>
+      <h1 class="brand"><a href="/">לחגוג</a></h1>
       <section class="card" id="missing" hidden>
         <h2>הדף לא נמצא</h2>
         <p>אולי הקישור נקטע בדרך.</p>
@@ -65,85 +27,12 @@
     <footer>לחגוג · <a href="/privacy">פרטיות</a> · <a href="/terms">תנאי שימוש</a> · <a href="/delete-account">מחיקת חשבון</a> · <a href="/accessibility">הצהרת נגישות</a></footer>
     <script>
       (function () {
-        var PACKAGE = 'com.lahgog.app';
-        var CODE = /^[A-HJKMNP-Z2-9]{8}$/;
-        var KINDS = {
-          j: { title: 'הוזמנת לצ׳אט', text: 'מזמינים אותך לצ׳אט בלחגוג.' },
-          i: { title: 'בואו לחגוג ביחד 🎉', text: 'קיבלת הזמנה להצטרף ללחגוג.' },
-          f: { title: 'בקשת חברות', text: 'מישהו רוצה להיות חברים בלחגוג.' },
-          a: { title: 'אירוע שותף איתך', text: 'שיתפו איתך אירוע להוספה ללוח שלך בלחגוג.' },
-          l: { title: 'רשימת ימי הולדת', text: 'שיתפו איתך ימי הולדת להוספה ללוח שלך בלחגוג.' },
-        };
-        var $ = function (id) { return document.getElementById(id); };
         var path = location.pathname.replace(/\/+$/, '');
-        var withCode = /^\/(j|i|f)\/([A-Za-z0-9]{8})$/.exec(path);
-        // Guest pages live at /p/?t=<token> and /g/?t=<token> (real files, so link previews get a 200); the older
-        // /p/<token> form, shared by app versions before 2026-10-26, is forwarded there.
-        var guestLink = /^\/(p|g)\/([A-Za-z0-9]{24})$/.exec(path);
-        if (guestLink) {
-          location.replace('/' + guestLink[1] + '/?t=' + guestLink[2]);
-          return;
-        }
-        // The live countdown (R84): shown here, ticking, for someone without the app (countdown.js).
-        var countdownData = path === '/c' && /[?&]d=([A-Za-z0-9_-]+)/.exec(location.search);
-        if (countdownData) {
-          var cdScript = document.createElement('script');
-          cdScript.src = '/countdown.js';
-          cdScript.onload = function () {
-            var cdInvite = encodeURIComponent('lahgog=' + encodeURIComponent('/c' + location.search));
-            if (cdInvite.length < 900) $('cdPlay').href += '&referrer=' + cdInvite;
-            if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-              $('cdPlay').hidden = true;
-              $('cdNote').textContent = 'לחגוג זמינה כרגע לאנדרואיד.';
-            }
-            $('countdown').hidden = false;
-            window.LahgogCountdown.show(countdownData[1], {
-              title: $('cdTitle'), when: $('cdWhen'), clock: $('cdClock'), today: $('cdToday'),
-              days: $('cdDays'), hours: $('cdHours'), minutes: $('cdMinutes'), seconds: $('cdSeconds'),
-            }, function () { $('countdown').hidden = true; $('missing').hidden = false; });
-          };
-          cdScript.onerror = function () { $('missing').hidden = false; };
-          document.head.appendChild(cdScript);
-          return;
-        }
-        var withData = /^\/(a|l)$/.test(path) && /[?&]d=[A-Za-z0-9_-]+/.test(location.search);
-        var kind = withCode ? withCode[1] : withData ? path.slice(1) : null;
-        var code = withCode ? withCode[2].toUpperCase() : null;
-        if (!kind || (code && !CODE.test(code))) {
-          $('missing').hidden = false;
-          return;
-        }
-        $('title').textContent = KINDS[kind].title;
-        $('text').textContent = KINDS[kind].text;
-        $('invite').hidden = false;
-
-        // The invite rides along through the install (Google Play's install referrer), when it fits.
-        var invite = withCode ? '/' + kind + '/' + code : path + location.search;
-        var referrer = encodeURIComponent('lahgog=' + encodeURIComponent(invite));
-        var play = 'https://play.google.com/store/apps/details?id=' + PACKAGE + (referrer.length < 900 ? '&referrer=' + referrer : '');
-        $('play').href = play;
-
-        if (code) {
-          $('code').textContent = code;
-          $('codeBox').hidden = false;
-          if (navigator.clipboard) {
-            var copy = $('copy');
-            copy.hidden = false;
-            copy.addEventListener('click', function () {
-              navigator.clipboard.writeText(code).then(function () { copy.textContent = 'הועתק ✓'; });
-            });
-          }
-        }
-
-        var ua = navigator.userAgent;
-        if (/iPhone|iPad|iPod/.test(ua)) {
-          $('play').hidden = true;
-          $('after').hidden = true;
-          $('iosNote').hidden = false;
-        } else if (/Android/.test(ua)) {
-          // Like most apps: straight on to the store after a moment to read what the invite is.
-          setTimeout(function () { location.href = play; }, 1500);
-        }
+        var code = /^\/(j|i|f)\/([A-Za-z0-9]{8})$/.exec(path);
+        if (code) return location.replace('/' + code[1] + '/?c=' + code[2]);
+        var guest = /^\/(p|g)\/([A-Za-z0-9]{24})$/.exec(path);
+        if (guest) return location.replace('/' + guest[1] + '/?t=' + guest[2]);
+        document.getElementById('missing').hidden = false;
       })();
     </script>
   </body>

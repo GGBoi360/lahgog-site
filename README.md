@@ -5,9 +5,12 @@ Play button points at the real listing (`com.lahgog.app`), live once the app is 
 sends a visitor without the app to Google Play after 1.5 seconds, with the invite in the install referrer
 (`lahgog=<path and query>`, when it fits) for a deferred deep link; iPhones see the code and "Android for now".
 
-A static site, no build step: the landing page (`index.html`), the invite page (`404.html`, which GitHub Pages
-serves for every path without a file: `/j/<code>`, `/i/<code>`, `/f/<code>`, `/a?d=…`, `/l?d=…`, the links built in
-`src/features/sharing/inviteLinks.ts`), and `/.well-known/assetlinks.json`, which tells Android that the app may open
+A static site, no build step: the landing page (`index.html`); the invite pages for the links built in
+`src/features/sharing/inviteLinks.ts`: `/j/?c=<code>`, `/i/?c=<code>`, `/f/?c=<code>`, `/a?d=…`, `/l?d=…`, `/c?d=…`
+(`j/index.html`, `i/index.html`, `f/index.html`, `a.html`, `l.html`, `c.html`, each with its own preview card, all
+drawn by `invite.js`; generated from one template, scratchpad `mkinvites.mjs`, so edit them together); `404.html`,
+which GitHub Pages serves for every path without a file and which only forwards the older path forms (`/j/<code>` to
+`/j/?c=<code>`, `/p/<token>` to `/p/?t=<token>`); and `/.well-known/assetlinks.json`, which tells Android that the app may open
 `https://lahgog.app/...` links itself (App Links; the intent filter with `autoVerify` is in `app.json`).
 
 ## Guest pages (since 2026-10-26)
