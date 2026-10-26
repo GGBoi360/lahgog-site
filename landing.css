@@ -85,7 +85,8 @@ img { max-width: 100%; height: auto; }
 .plan li::before { content: '✓ '; color: #0f9f8f; font-weight: 800; }
 .plan .go { justify-self: start; background: #663886; color: #fff; border-radius: 999px; padding: 8px 18px; font-weight: 800; font-size: 15px; }
 @media (prefers-reduced-motion: no-preference) {
-  .chat .step { opacity: 0; transform: translateY(10px); animation: pop 500ms cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards; }
+  .chat.play .step { animation-play-state: running; }
+  .chat .step { animation-play-state: paused; opacity: 0; transform: translateY(10px); animation: pop 500ms cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards; }
   .chat .s2 { animation-delay: 700ms; }
   .chat .s3 { animation-delay: 1500ms; }
   .chat .s4 { animation-delay: 2300ms; }
@@ -236,3 +237,31 @@ img { max-width: 100%; height: auto; }
 .foot nav a { color: var(--ink); }
 .foot p { margin: 4px 0; }
 .t-guests p { margin-top: auto; }
+
+/* hero: a stack of three app cards (remember, plan, together) */
+.stack { position: relative; height: 360px; max-width: 460px; width: 100%; justify-self: center; }
+.snap { position: absolute; inset-inline: 0; border-radius: 26px; padding: 22px 24px; display: grid; gap: 4px; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.75); }
+.snap b { font-size: 22px; font-weight: 800; }
+.snap span { font-size: 16px; opacity: 0.9; }
+.s-remember { top: 0; background: #e84a2f; color: #fff; transform: rotate(-4deg); margin-inline-end: 40px; }
+.s-plan { top: 112px; background: linear-gradient(135deg, #7b4fd6, #b04fc4); color: #fff; transform: rotate(2deg); margin-inline-start: 30px; }
+.s-together { top: 226px; background: #0f9f8f; color: #fff; transform: rotate(-2deg); margin-inline-end: 20px; }
+.prog { display: block; height: 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.25); margin-top: 8px; overflow: hidden; }
+.prog i { display: block; height: 100%; width: 66%; background: #f5b21b; border-radius: 999px; }
+@media (prefers-reduced-motion: no-preference) {
+  .snap { animation: deal 700ms cubic-bezier(0.2, 0.9, 0.3, 1.15) both; }
+  .s-plan { animation-delay: 150ms; }
+  .s-together { animation-delay: 300ms; }
+}
+@keyframes deal { from { opacity: 0; translate: 0 30px; } to { opacity: 1; translate: 0 0; } }
+
+/* plans with you: the intro beside the planner conversation */
+.planner { display: grid; gap: 28px; align-items: start; margin-bottom: 44px; }
+.planner .intro { margin: 0; }
+@media (min-width: 900px) { .planner { grid-template-columns: 1fr 1fr; gap: 48px; } }
+.how { list-style: none; counter-reset: how; margin: 0 0 24px; padding: 0; display: grid; gap: 18px; }
+.how li { counter-increment: how; display: grid; grid-template-columns: 48px 1fr; column-gap: 14px; align-items: start; }
+.how li::before { content: counter(how); grid-row: span 2; width: 48px; height: 48px; border-radius: 50%; background: var(--coral); color: #fff; font-weight: 800; font-size: 22px; display: grid; place-items: center; }
+.how strong { font-size: 20px; font-weight: 800; }
+.how span { color: var(--muted); }
+.planner .intro { font-size: 17px; }

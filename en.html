@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lahgog: plan any event with AI, and never miss a birthday</title>
+    <title>Lahgog: all your birthdays and events, with AI that helps you plan</title>
     <meta name="description" content="Planning a party, a birthday or a family dinner? Tell the AI what you want and get a plan: dates, to-dos, guests, budget and vendors. And Lahgog remembers every birthday too. Free download for Android." />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#24152F" />
@@ -52,34 +52,73 @@
       </header>
       <section class="wrap hero" id="main">
         <div>
-          <h1>From the idea to the party, in one conversation.</h1>
-          <p class="lead">Tell the AI what you're planning and get a ready plan: dates, to-dos, guests and budget. And Lahgog remembers every birthday too, so you never miss anyone.</p>
+          <h1>All your birthdays and events, in one place.</h1>
+          <p class="lead">Lahgog remembers everyone who matters to you, plans any event with you using AI, and brings everyone together to celebrate.</p>
           <div class="soon" role="status"><strong>Coming soon to Google Play</strong><span>Free download, for Android</span></div>
         </div>
-        <div class="chat" aria-label="An example planning conversation with the AI">
-          <div class="chat-head"><i aria-hidden="true">✨</i>Plan something</div>
-          <div class="bubble me step s1">Noa's 6th birthday, end of November, in the park</div>
-          <div class="bubble ai step s2">Fun! About how many kids?</div>
-          <div class="chips step s3"><span class="chip on">10–15</span><span class="chip">15–25</span><span class="chip">Not sure yet</span></div>
-          <div class="bubble ai step s4">Here's a plan:</div>
-          <div class="plan step s5">
-            <b>Noa's 6th birthday</b>
-            <ul>
-              <li>3 date options at the end of November</li>
-              <li>9 to-dos, from 3 weeks before</li>
-              <li>A budget in 5 lines</li>
-            </ul>
-            <span class="go">Create the plan</span>
-          </div>
+        <div class="stack" aria-label="What's in Lahgog">
+          <div class="snap s-remember"><b>🎂 Dana's birthday</b><span>In 3 days, on Friday</span></div>
+          <div class="snap s-plan"><b>✨ Noa's 6th birthday</b><span>6 of 9 to-dos done</span><i class="prog"><i></i></i></div>
+          <div class="snap s-together"><b>Friends' night</b><span>9 coming, 2 haven't answered</span></div>
         </div>
       </section>
     </div>
 
     <main>
+      <section class="band remember" aria-labelledby="remember-title">
+        <div class="wrap remember-grid">
+          <div>
+            <h2 id="remember-title">It remembers for you.</h2>
+            <ul class="points">
+              <li><strong>Reminders on time</strong><span>The day before and on the day, or whenever you choose, even without internet.</span></li>
+              <li><strong>By the Hebrew date too</strong><span>Adar I and Adar II included, and births after sunset.</span></li>
+              <li><strong>A home-screen widget</strong><span>Who's next, without opening the app.</span></li>
+            </ul>
+            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🎂 Dana's 22nd birthday</b><span>Tomorrow</span></div></div>
+            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🥂 10 years together: Dana and Daniel</b><span>Today 🎉</span></div></div>
+          </div>
+          <div class="cal" aria-label="Today on the calendar">
+            <div class="cal-posts" aria-hidden="true"><i></i><i></i></div>
+            <div class="cal-page">
+              <div class="cal-head" id="calWeekday">Today</div>
+              <div class="cal-day" id="calDay"></div>
+              <div class="cal-month" id="calMonth"></div>
+              <div class="cal-hebrew" id="calHebrew"></div>
+            </div>
+            <img class="cal-flame" src="/flame.svg" alt="" width="76" height="94" />
+          </div>
+        </div>
+      </section>
+
       <section class="band organize" aria-labelledby="organize-title">
         <div class="wrap">
-          <h2 id="organize-title">Everything organizers need, in one place.</h2>
-          <p class="intro">A plan is the backstage: only its organizers see it. Add up to 9 friends to organize with you, and start from a template for the kind of event.</p>
+          <h2 id="organize-title">It plans with you.</h2>
+          <div class="planner">
+            <div>
+              <ol class="how">
+                <li><strong>Say what you want</strong><span>In your own words: what, for whom, and roughly when.</span></li>
+                <li><strong>Answer a question or two</strong><span>How many guests, where, what budget.</span></li>
+                <li><strong>Get a plan</strong><span>Date options, to-dos and a budget. Nothing is saved until you approve it.</span></li>
+              </ol>
+              <p class="intro">Then every organizer tool in one place. Only the organizers see the plan, and you can add up to 9 friends or start from a template for the kind of event.</p>
+            </div>
+            <div class="chat" aria-label="An example planning conversation with the AI">
+              <div class="chat-head"><i aria-hidden="true">✨</i>Plan something</div>
+              <div class="bubble me step s1">Noa's 6th birthday, end of November, in the park</div>
+              <div class="bubble ai step s2">Fun! About how many kids?</div>
+              <div class="chips step s3"><span class="chip on">10–15</span><span class="chip">15–25</span><span class="chip">Not sure yet</span></div>
+              <div class="bubble ai step s4">Here's a plan:</div>
+              <div class="plan step s5">
+                <b>Noa's 6th birthday</b>
+                <ul>
+                  <li>3 date options at the end of November</li>
+                  <li>9 to-dos, from 3 weeks before</li>
+                  <li>A budget in 5 lines</li>
+                </ul>
+                <span class="go">Create the plan</span>
+              </div>
+            </div>
+          </div>
           <div class="bento">
             <article class="tile t-guests">
               <h3>A guest list that works</h3>
@@ -141,7 +180,7 @@
 
       <section class="band ai" aria-labelledby="ai-title">
         <div class="wrap">
-          <h2 id="ai-title">AI that saves you work.</h2>
+          <h2 id="ai-title">It helps you get ready.</h2>
           <p class="intro">Ask, and it does. Nothing is saved until you approve it, and you can turn it off in Settings.</p>
           <div class="ai-grid">
             <article class="ai-card">
@@ -170,7 +209,7 @@
 
       <section class="band together" aria-labelledby="together-title">
         <div class="wrap">
-          <h2 id="together-title">Decide together, show up together.</h2>
+          <h2 id="together-title">And you celebrate together.</h2>
           <p class="intro">Chats with friends and family, with everything you need to settle it: a vote on the date, who's coming and who brings what.</p>
           <div class="together-grid">
             <article class="event" aria-label="An example of an event in a chat">
@@ -194,31 +233,6 @@
               <p class="today" id="hanukkahToday" hidden>Happy Hanukkah! 🕎</p>
               <p class="note">Any event can be shared as a live countdown like this one, still ticking for whoever gets it.</p>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="band remember" aria-labelledby="remember-title">
-        <div class="wrap remember-grid">
-          <div>
-            <h2 id="remember-title">And nobody gets forgotten.</h2>
-            <ul class="points">
-              <li><strong>Reminders on time</strong><span>The day before and on the day, or whenever you choose, even without internet.</span></li>
-              <li><strong>By the Hebrew date too</strong><span>Adar I and Adar II included, and births after sunset.</span></li>
-              <li><strong>A home-screen widget</strong><span>Who's next, without opening the app.</span></li>
-            </ul>
-            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🎂 Dana's 22nd birthday</b><span>Tomorrow</span></div></div>
-            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🥂 10 years together: Dana and Daniel</b><span>Today 🎉</span></div></div>
-          </div>
-          <div class="cal" aria-label="Today on the calendar">
-            <div class="cal-posts" aria-hidden="true"><i></i><i></i></div>
-            <div class="cal-page">
-              <div class="cal-head" id="calWeekday">Today</div>
-              <div class="cal-day" id="calDay"></div>
-              <div class="cal-month" id="calMonth"></div>
-              <div class="cal-hebrew" id="calHebrew"></div>
-            </div>
-            <img class="cal-flame" src="/flame.svg" alt="" width="76" height="94" />
           </div>
         </div>
       </section>

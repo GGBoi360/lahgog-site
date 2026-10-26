@@ -44,6 +44,19 @@
     el('calHebrew').textContent = hebrewLabel(now);
   }
 
+  // ---- the planner conversation plays once, when it scrolls into view ----
+  var chat = document.querySelector('.chat');
+  if (chat) {
+    if ('IntersectionObserver' in window) {
+      var seen = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { chat.classList.add('play'); seen.disconnect(); }
+      }, { threshold: 0.35 });
+      seen.observe(chat);
+    } else {
+      chat.classList.add('play');
+    }
+  }
+
   // ---- the next Hanukkah (25 Kislev), to its first day at midnight, like the app's countdown ----
   var counter = el('hanukkah');
   if (!counter) return;

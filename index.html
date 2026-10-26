@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>לחגוג: לתכנן אירוע עם AI, ולא לפספס אף יום הולדת</title>
+    <title>לחגוג: כל ימי ההולדת והאירועים שלכם, עם AI שעוזר לתכנן</title>
     <meta name="description" content="מתכננים מסיבה, יום הולדת או ארוחה משפחתית? מספרים ל-AI מה רוצים ומקבלים תוכנית: תאריכים, משימות, אורחים, תקציב וספקים. ולחגוג גם זוכרת את כל ימי ההולדת. הורדה חינם לאנדרואיד." />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#24152F" />
@@ -52,34 +52,73 @@
       </header>
       <section class="wrap hero" id="main">
         <div>
-          <h1>מהרעיון ועד המסיבה, בשיחה אחת.</h1>
-          <p class="lead">ספרו ל-AI מה אתם מתכננים וקבלו תוכנית מוכנה: תאריכים, משימות, אורחים ותקציב. ולחגוג גם זוכרת את כל ימי ההולדת, כדי שלא תפספסו אף אחד.</p>
+          <h1>כל ימי ההולדת והאירועים שלכם, במקום אחד.</h1>
+          <p class="lead">לחגוג זוכרת בשבילכם את כל מי שחשוב לכם, מתכננת איתכם כל אירוע בעזרת AI, ומחברת את כולם לחגוג ביחד.</p>
           <div class="soon" role="status"><strong>בקרוב ב-<bdi>Google Play</bdi></strong><span>הורדה חינם, לאנדרואיד</span></div>
         </div>
-        <div class="chat" aria-label="דוגמה לשיחת תכנון עם ה-AI">
-          <div class="chat-head"><i aria-hidden="true">✨</i>לתכנן משהו</div>
-          <div class="bubble me step s1">יום הולדת 6 לנועה, בסוף נובמבר, בגינה</div>
-          <div class="bubble ai step s2">איזה כיף! כמה ילדים בערך?</div>
-          <div class="chips step s3"><span class="chip on"><bdi dir="ltr">10–15</bdi></span><span class="chip"><bdi dir="ltr">15–25</bdi></span><span class="chip">עוד לא יודע/ת</span></div>
-          <div class="bubble ai step s4">הנה תוכנית:</div>
-          <div class="plan step s5">
-            <b>יום הולדת 6 לנועה</b>
-            <ul>
-              <li>3 אפשרויות תאריך בסוף נובמבר</li>
-              <li>9 משימות, מ-3 שבועות לפני</li>
-              <li>תקציב ב-5 שורות</li>
-            </ul>
-            <span class="go">ליצור את התוכנית</span>
-          </div>
+        <div class="stack" aria-label="מה יש בלחגוג">
+          <div class="snap s-remember"><b>🎂 יום ההולדת של דנה</b><span>בעוד 3 ימים, ביום שישי</span></div>
+          <div class="snap s-plan"><b>✨ יום הולדת 6 לנועה</b><span>6 מתוך 9 משימות</span><i class="prog"><i></i></i></div>
+          <div class="snap s-together"><b>ערב חברים</b><span>9 מגיעים, 2 עוד לא ענו</span></div>
         </div>
       </section>
     </div>
 
     <main>
+      <section class="band remember" aria-labelledby="remember-title">
+        <div class="wrap remember-grid">
+          <div>
+            <h2 id="remember-title">זוכרת בשבילכם.</h2>
+            <ul class="points">
+              <li><strong>תזכורות בזמן</strong><span>יום לפני וביום עצמו, או מתי שתבחרו, גם בלי אינטרנט.</span></li>
+              <li><strong>גם לפי התאריך העברי</strong><span>כולל אדר א׳ ואדר ב׳, ומי שנולד אחרי השקיעה.</span></li>
+              <li><strong>ווידג׳ט למסך הבית</strong><span>מי הבא בתור, בלי לפתוח את האפליקציה.</span></li>
+            </ul>
+            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🎂 יום הולדת 22 של דנה</b><span>מחר</span></div></div>
+            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🥂 10 שנים יחד: דנה ודניאל</b><span>היום 🎉</span></div></div>
+          </div>
+          <div class="cal" aria-label="היום בלוח השנה">
+            <div class="cal-posts" aria-hidden="true"><i></i><i></i></div>
+            <div class="cal-page">
+              <div class="cal-head" id="calWeekday">היום</div>
+              <div class="cal-day" id="calDay"></div>
+              <div class="cal-month" id="calMonth"></div>
+              <div class="cal-hebrew" id="calHebrew"></div>
+            </div>
+            <img class="cal-flame" src="/flame.svg" alt="" width="76" height="94" />
+          </div>
+        </div>
+      </section>
+
       <section class="band organize" aria-labelledby="organize-title">
         <div class="wrap">
-          <h2 id="organize-title">כל מה שהמארגנים צריכים, במקום אחד.</h2>
-          <p class="intro">התוכנית היא מאחורי הקלעים: רק המארגנים רואים אותה. אפשר לצרף עד 9 חברים לארגן יחד, ולהתחיל מתבנית לפי סוג האירוע.</p>
+          <h2 id="organize-title">מתכננת איתכם.</h2>
+          <div class="planner">
+            <div>
+              <ol class="how">
+                <li><strong>מספרים מה רוצים</strong><span>במילים שלכם: מה, למי, ובערך מתי.</span></li>
+                <li><strong>עונים על שאלה או שתיים</strong><span>כמה אורחים, איפה, מה התקציב.</span></li>
+                <li><strong>מקבלים תוכנית</strong><span>אפשרויות תאריך, משימות ותקציב. שום דבר לא נשמר בלי שאישרתם.</span></li>
+              </ol>
+              <p class="intro">ואז כל הכלים של המארגנים במקום אחד. רק המארגנים רואים את התוכנית, ואפשר לצרף עד 9 חברים או להתחיל מתבנית לפי סוג האירוע.</p>
+            </div>
+            <div class="chat" aria-label="דוגמה לשיחת תכנון עם ה-AI">
+              <div class="chat-head"><i aria-hidden="true">✨</i>לתכנן משהו</div>
+              <div class="bubble me step s1">יום הולדת 6 לנועה, בסוף נובמבר, בגינה</div>
+              <div class="bubble ai step s2">איזה כיף! כמה ילדים בערך?</div>
+              <div class="chips step s3"><span class="chip on"><bdi dir="ltr">10–15</bdi></span><span class="chip"><bdi dir="ltr">15–25</bdi></span><span class="chip">עוד לא יודע/ת</span></div>
+              <div class="bubble ai step s4">הנה תוכנית:</div>
+              <div class="plan step s5">
+                <b>יום הולדת 6 לנועה</b>
+                <ul>
+                  <li>3 אפשרויות תאריך בסוף נובמבר</li>
+                  <li>9 משימות, מ-3 שבועות לפני</li>
+                  <li>תקציב ב-5 שורות</li>
+                </ul>
+                <span class="go">ליצור את התוכנית</span>
+              </div>
+            </div>
+          </div>
           <div class="bento">
             <article class="tile t-guests">
               <h3>רשימת אורחים שעובדת</h3>
@@ -141,7 +180,7 @@
 
       <section class="band ai" aria-labelledby="ai-title">
         <div class="wrap">
-          <h2 id="ai-title">AI שחוסך לכם עבודה.</h2>
+          <h2 id="ai-title">עוזרת להתכונן.</h2>
           <p class="intro">מבקשים, והוא עושה. שום דבר לא נשמר בלי שאישרתם, ואפשר לכבות אותו בהגדרות.</p>
           <div class="ai-grid">
             <article class="ai-card">
@@ -170,7 +209,7 @@
 
       <section class="band together" aria-labelledby="together-title">
         <div class="wrap">
-          <h2 id="together-title">מחליטים ביחד, מגיעים ביחד.</h2>
+          <h2 id="together-title">וחוגגים ביחד.</h2>
           <p class="intro">צ׳אטים עם חברים ומשפחה, עם כל מה שצריך כדי לקבוע: הצבעה על תאריך, מי מגיע ומי מביא מה.</p>
           <div class="together-grid">
             <article class="event" aria-label="דוגמה לאירוע בצ׳אט">
@@ -194,31 +233,6 @@
               <p class="today" id="hanukkahToday" hidden>חנוכה שמח! 🕎</p>
               <p class="note">כל אירוע אפשר לשתף כספירה לאחור חיה כמו זו, שממשיכה לרוץ גם אצל מי שקיבל.</p>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="band remember" aria-labelledby="remember-title">
-        <div class="wrap remember-grid">
-          <div>
-            <h2 id="remember-title">ואף אחד לא נשכח.</h2>
-            <ul class="points">
-              <li><strong>תזכורות בזמן</strong><span>יום לפני וביום עצמו, או מתי שתבחרו, גם בלי אינטרנט.</span></li>
-              <li><strong>גם לפי התאריך העברי</strong><span>כולל אדר א׳ ואדר ב׳, ומי שנולד אחרי השקיעה.</span></li>
-              <li><strong>ווידג׳ט למסך הבית</strong><span>מי הבא בתור, בלי לפתוח את האפליקציה.</span></li>
-            </ul>
-            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🎂 יום הולדת 22 של דנה</b><span>מחר</span></div></div>
-            <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🥂 10 שנים יחד: דנה ודניאל</b><span>היום 🎉</span></div></div>
-          </div>
-          <div class="cal" aria-label="היום בלוח השנה">
-            <div class="cal-posts" aria-hidden="true"><i></i><i></i></div>
-            <div class="cal-page">
-              <div class="cal-head" id="calWeekday">היום</div>
-              <div class="cal-day" id="calDay"></div>
-              <div class="cal-month" id="calMonth"></div>
-              <div class="cal-hebrew" id="calHebrew"></div>
-            </div>
-            <img class="cal-flame" src="/flame.svg" alt="" width="76" height="94" />
           </div>
         </div>
       </section>
