@@ -10,6 +10,17 @@ serves for every path without a file: `/j/<code>`, `/i/<code>`, `/f/<code>`, `/a
 `src/features/sharing/inviteLinks.ts`), and `/.well-known/assetlinks.json`, which tells Android that the app may open
 `https://lahgog.app/...` links itself (App Links; the intent filter with `autoVerify` is in `app.json`).
 
+## Guest pages (since 2026-10-26)
+
+`/p/<token>` (a plan's guests, R105) and `/g/<token>` (a chat event's guests, R51) are also served by `404.html`, which
+loads `guest.js`. A guest without the app sees what the server function returns (`plan_guest_view` / `guest_event`)
+and answers with a name, going/maybe/not and plus-ones (`plan_guest_rsvp` / `guest_rsvp`, Supabase REST with the
+public anon key; access is decided by those functions). The key for changing the answer stays in the browser's
+localStorage (`lahgog.guest.<token>`); the server keeps only its hash. The privacy notice above the button is required
+(Privacy Protection Law s.11): what is kept, who sees it, that it's voluntary, how long, and a link to privacy
+`#guests`. Unknown or turned-off links show "not found". Test without real tokens: `.preview/guest-*.html` are built
+from `404.html` with `fetch` stubbed (scratchpad `mkmock.cjs`).
+
 ## Landing page (since 2026-10-26)
 
 - **Files:**

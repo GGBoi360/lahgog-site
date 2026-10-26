@@ -22,7 +22,7 @@
       </nav>
 
       <h1>מדיניות פרטיות</h1>
-      <p class="note">גרסה 2.6 · בתוקף מיום 25 באוקטובר 2026</p>
+      <p class="note">גרסה 2.7 · בתוקף מיום 26 באוקטובר 2026</p>
 
       <div class="summary">
         <p><strong>תקציר לנוחות בלבד (אינו חלק מהמדיניות).</strong> בלי חשבון, המידע שלך נשמר בטלפון בלבד. עם חשבון, נשמר אצלנו רק מה שנדרש לחברים, לצ׳אטים, לעותק בענן ול-AI, ותמונות נשמרות במקום שבחרת: ב-Google Drive שלך או באחסון הפרטי של החשבון. אנו לא מוכרים מידע אישי, לא משתמשים בתוכן שלך לפרסום ממוקד, ואפשר להוריד או למחוק את המידע בכל עת.</p>
@@ -97,7 +97,7 @@
         <li><strong>גלוי לכל משתמש:</strong> שם המשתמש, התיאור ותמונת הפרופיל. שם המשתמש ניתן לחיפוש כברירת מחדל.</li>
         <li><strong>גלוי רק למי שבחרת:</strong> יום ההולדת שלך, אם בחרת לשתף אותו, לפי הקהל שבחרת.</li>
         <li><strong>גלוי לחברי הצ׳אט או הקבוצה:</strong> ההודעות, התגובות, אישורי ההגעה, הפריטים והימים שסימנת כפנויים באותו צ׳אט. מי שקיבל ממך תזכורת לענות רואה שזה ממך, ובשעה שאחריה החברים רואים למי נשלחה תזכורת. בצ׳אט "מסיבת הפתעה" מי שההפתעה בשבילו אינו רואה את הצ׳אט ואת ההגדרה.</li>
-        <li><strong>תוכניות:</strong> רק מארגני התוכנית רואים אותה. אורח שמקבל קישור לתוכנית רואה רק את שמה, התאריך, השעה, המקום, השמות הפרטיים של המארגנים וכמה מגיעים, ולא את ההערות, התקציב, המשימות או האורחים האחרים.</li>
+        <li><strong>תוכניות:</strong> רק מארגני התוכנית רואים אותה. אורח שמקבל קישור לתוכנית רואה רק את שמה, התאריך, השעה, המקום, השמות הפרטיים של המארגנים וכמה מגיעים, ולא את ההערות, התקציב, המשימות או האורחים האחרים (ראו <a href="#guests">דפי אורחים</a>).</li>
         <li><strong>הזמנות:</strong> אם הצטרפת בהזמנה, מי שהזמין אותך רואה שהצטרפת, כמה ימים נותרו עד שההזמנה נספרת ומתי נספרה. ברשימת "הכי הרבה הזמנות" מופיעים רק מי שבחרו להופיע בטבלת התומכים, עם מספר ההזמנות שנספרו להם.</li>
         <li><strong>טבלת התומכים:</strong> רק אם בחרת להופיע בה, שם המשתמש ודרגת התמיכה שלך גלויים בה.</li>
       </ul>
@@ -121,6 +121,7 @@
 
       <h2 id="p8">8. קישורי שיתוף</h2>
       <p>קישור "הוספה ללחגוג" לאירוע או לרשימה כולל את השמות, סוגי האירועים והתאריכים <strong>בתוך הקישור עצמו</strong>, בקידוד שכל מי שמחזיק בקישור יכול לקרוא. הקישור עובר דרך האתר, ואם האפליקציה מותקנת דרכו, גם דרך Google Play. מי ששולח קישור כזה אחראי לכך שמותר לו לשתף את המידע שבו. קישורי הזמנה לצ׳אט, לחברות או לאפליקציה כוללים רק קוד קצר.</p>
+      <p id="guests"><strong>דפי אורחים.</strong> מארגן יכול לשלוח לאורחים קישור לתוכנית (lahgog.app/p/…) או לאירוע בצ׳אט (lahgog.app/g/…), והם יכולים לענות בו בלי האפליקציה ובלי חשבון. כל מי שמחזיק בקישור רואה: בתוכנית, את שמה, התאריך, השעה, המקום, השמות הפרטיים של המארגנים וכמה מגיעים; באירוע בצ׳אט, את שמו, התאריך, השעה, המקום, ההערות של האירוע, שם התצוגה של מי שיצר אותו וכמה מגיעים. לכן כדאי לשלוח את הקישור רק למוזמנים. אורח שעונה מוסר שם (עד 60 תווים), תשובה (מגיע, אולי או לא מגיע) ומספר מלווים. המסירה רשות ואינה חובה לפי דין. הפרטים נשמרים בשרת שלנו (Supabase) ומוצגים למארגני התוכנית, או לחברי הצ׳אט של האירוע, כדי שיידעו מי מגיע. מארגני התוכנית, או מי שרשאי לערוך את האירוע, יכולים להסיר את האורח. הדפדפן של האורח שומר מפתח (ב-localStorage, לא עוגייה) שמאפשר לו לשנות את התשובה מאותו מכשיר, ובשרת נשמר רק גיבוב (hash) של המפתח. אורח שרוצה לעיין בתשובה שלו או למחוק אותה יכול לבקש זאת מהמארגנים או לפנות ל-<a href="mailto:support@lahgog.app">support@lahgog.app</a> עם הקישור והשם שמסר. מארגן ששולח את הקישור אחראי לכך שמותר לו לשתף את פרטי האירוע שבו.</p>
 
       <h2 id="p9">9. התראות, פרסומות ורכישות</h2>
       <p><strong>התראות.</strong> התראה על בקשת חברות, הודעה, הוספה לצ׳אט, תזכורת לענות באירוע או הוספה כמארגן לתוכנית כוללת את שם השולח, שם הצ׳אט או האירוע ותחילת ההודעה (עד 200 תווים), ועוברת דרך Expo ו-Google. תזכורות מעקב לתוכניות (משימות פתוחות, אורחים שלא ענו ותשלומים לספקים), לכל היותר אחת ביום לתוכנית, נוצרות בטלפון מעותק שנשמר בו ואינן עוברות דרך שרתי ההתראות. אפשר לכבות סוגי התראות באפליקציה ובהגדרות הטלפון. תזכורות לימי הולדת נוצרות בטלפון ואינן עוברות דרכנו.</p>
@@ -136,7 +137,7 @@
             <tr><th scope="col">ספק</th><th scope="col">תפקיד</th><th scope="col">מיקום</th></tr>
           </thead>
           <tbody>
-            <tr><td>Supabase</td><td>השרת ומסד הנתונים של החשבונות</td><td>לונדון, בריטניה</td></tr>
+            <tr><td>Supabase</td><td>השרת ומסד הנתונים של החשבונות ושל דפי האורחים</td><td>לונדון, בריטניה</td></tr>
             <tr><td>Anthropic, ‏OpenAI</td><td>עיבוד בקשות AI</td><td>ארה״ב</td></tr>
             <tr><td>Google</td><td>כניסה, Drive, משלוח התראות, Google Play, מודעות (AdMob)</td><td>ארה״ב ומדינות נוספות</td></tr>
             <tr><td>Expo</td><td>עדכוני האפליקציה ומשלוח התראות</td><td>ארה״ב</td></tr>
@@ -167,6 +168,7 @@
             <tr><td>אסימוני התראות</td><td>עד שהם מוחלפים, מפסיקים לפעול, או עד מחיקת החשבון</td></tr>
             <tr><td>תור ההתראות שנשלחו</td><td>7 ימים</td></tr>
             <tr><td>תוכניות, כולל האורחים, הספקים, ההוצאות ושיחת התכנון</td><td>עד שיוצר התוכנית מוחק אותה, או עד שהמארגן האחרון עוזב אותה או מוחק את חשבונו. מארגן שמוחק את חשבונו יוצא מהתוכנית, והיא נשארת לשאר המארגנים. העותק בטלפון לתזכורות המעקב מתחדש בכל סנכרון ונמחק ביציאה מהחשבון</td></tr>
+            <tr><td>תשובות אורחים מדפי האורחים</td><td>עד שהאורח מוסר מהתוכנית או מהאירוע, או עד שהתוכנית, האירוע או הצ׳אט נמחקים. המפתח בדפדפן של האורח נשאר בו עד שמוחקים את נתוני האתר בדפדפן</td></tr>
             <tr><td>תזכורות לענות באירוע</td><td>עד מחיקת האירוע או מחיקת החשבון של אחד הצדדים</td></tr>
             <tr><td>מטמון תשובות AI</td><td>כ-24 שעות</td></tr>
             <tr><td>רישומי שימוש ב-AI</td><td>עד מחיקת החשבון</td></tr>
@@ -197,7 +199,7 @@
       <p>אנו נוקטים אמצעים סבירים להגנה על המידע, ביניהם הצפנה בתעבורה, הרשאות גישה במסד הנתונים לפי משתמש, וגישה מוגבלת למערכות. אף מערכת אינה חסינה לחלוטין, ואיננו יכולים להבטיח שמידע לא ייחשף כתוצאה מפריצה או מתקלה. במקרה של אירוע אבטחה חמור נפעל כפי שהדין מחייב, לרבות דיווח לרשות להגנת הפרטיות והודעה למשתמשים שנפגעו. האחריות לשמירה על הטלפון, על חשבון האימייל או ה-Google ועל קובצי הגיבוי שלך היא שלך.</p>
 
       <h2 id="p16">16. האתר lahgog.app</h2>
-      <p>האתר אינו משתמש בעוגיות (cookies), בכלי ניתוח או בכלי מעקב. ספקית האחסון (GitHub) רושמת, כמו כל שרת, כתובות IP ונתוני גלישה בסיסיים לצורכי אבטחה ותפעול, לפי <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" lang="en" hreflang="en">מדיניות הפרטיות שלה</a>.</p>
+      <p>האתר אינו משתמש בעוגיות (cookies), בכלי ניתוח או בכלי מעקב. בדפי האורחים בלבד הדפדפן פונה לשרת שלנו (Supabase) כדי להציג את ההזמנה ולשמור את התשובה, ושומר את המפתח לשינוי התשובה (ראו <a href="#guests">דפי אורחים</a>). ספקית האחסון (GitHub) רושמת, כמו כל שרת, כתובות IP ונתוני גלישה בסיסיים לצורכי אבטחה ותפעול, לפי <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" lang="en" hreflang="en">מדיניות הפרטיות שלה</a>.</p>
 
       <h2 id="p17">17. שינויים במדיניות</h2>
       <p>אנו רשאים לעדכן את המדיניות. הגרסה המעודכנת תפורסם בעמוד זה עם תאריך התוקף שלה. שינוי מהותי, ובפרט שימוש חדש במידע או מסירה לגורם חדש, יוצג באפליקציה או יישלח לאימייל של החשבון לפחות 30 ימים לפני כניסתו לתוקף, ואם הדין מחייב, נבקש הסכמה. מי שאינו מסכים יכול להפסיק להשתמש בשירות ולמחוק את החשבון.</p>
@@ -210,7 +212,7 @@
 
       <section id="en" lang="en" dir="ltr">
         <h1>Privacy policy</h1>
-        <p class="note">Version 2.6 · Effective 25 October 2026</p>
+        <p class="note">Version 2.7 · Effective 26 October 2026</p>
 
         <div class="summary">
           <p><strong>Summary for convenience only (not part of the policy).</strong> Without an account, your data stays on your phone. With an account, we keep only what friends, chats, the cloud copy and AI need, and photos go where you choose: your own Google Drive or your account's private storage. We don't sell personal data, we don't use your content for targeted advertising, and you can download or delete your data at any time.</p>
@@ -259,7 +261,7 @@
           <li><strong>Any user:</strong> your username, bio and profile photo. Your username is searchable by default.</li>
           <li><strong>Only those you chose:</strong> your birthday, if you share it, with the audience you picked.</li>
           <li><strong>Members of a chat or group:</strong> your messages, reactions, RSVPs, items and the days you marked as free there. Someone you remind to answer sees it came from you, and for the next hour the members see who was reminded. In a "surprise party" chat, the person it's for doesn't see the chat or the setting.</li>
-          <li><strong>Plans:</strong> only the plan's organizers see it. A guest who gets a plan's link sees only its title, date, time, place, the organizers' first names and how many are coming, never notes, budget, to-dos or other guests.</li>
+          <li><strong>Plans:</strong> only the plan's organizers see it. A guest who gets a plan's link sees only its title, date, time, place, the organizers' first names and how many are coming, never notes, budget, to-dos or other guests (see <a href="#guests-en">guest pages</a>).</li>
           <li><strong>Invites:</strong> if you joined by invite, the person who invited you sees that you joined, how many days are left until the invite counts, and when it counted. The "most invites" list shows only people who chose to appear on the supporters board, with their counted invites.</li>
           <li><strong>The supporters board:</strong> only if you choose to appear on it, your username and support level.</li>
         </ul>
@@ -283,6 +285,7 @@
 
         <h2>8. Share links</h2>
         <p>An "Add in Lahgog" link for an event or a list carries the names, event types and dates <strong>inside the link itself</strong>, encoded in a way anyone holding the link can read. The link passes through our website and, if the app is installed through it, through Google Play. Whoever sends such a link is responsible for being allowed to share what's in it. Chat, friend and app invite links carry only a short code.</p>
+        <p id="guests-en"><strong>Guest pages.</strong> An organizer can send guests a link to a plan (lahgog.app/p/…) or to a chat event (lahgog.app/g/…), and they can answer there without the app or an account. Anyone holding the link sees: for a plan, its title, date, time, place, the organizers' first names and how many are coming; for a chat event, its title, date, time, place, the event's notes, its creator's display name and how many are coming. So send the link only to the people invited. A guest who answers gives a name (up to 60 characters), an answer (going, maybe or not going) and a number of people coming with them. Giving them is voluntary and not required by law. They are kept on our server (Supabase) and shown to the plan's organizers, or to the chat event's members, so they know who's coming. The plan's organizers, or whoever may edit the event, can remove the guest. The guest's browser keeps a key (in localStorage, not a cookie) that lets them change their answer from that device, and the server keeps only a hash of the key. A guest who wants to see or delete their answer can ask the organizers, or write to <a href="mailto:support@lahgog.app">support@lahgog.app</a> with the link and the name they gave. An organizer who sends the link is responsible for being allowed to share the event details in it.</p>
 
         <h2>9. Notifications, ads and purchases</h2>
         <p><strong>Notifications</strong> about a friend request, a message, being added to a chat, a reminder to answer an event, or being added as a plan's organizer contain the sender's name, the chat's or event's name and the start of the message (up to 200 characters), and pass through Expo and Google. Plan follow-up reminders (open to-dos, guests who haven't answered and vendor payments due), at most one a day per plan, are created on the phone from a copy kept there and don't pass through the notification servers. You can turn notification types off in the app and in the phone's settings. Birthday reminders are created on the phone and don't pass through us.</p>
@@ -296,7 +299,7 @@
           <table>
             <thead><tr><th scope="col">Provider</th><th scope="col">Role</th><th scope="col">Location</th></tr></thead>
             <tbody>
-              <tr><td>Supabase</td><td>Account server and database</td><td>London, UK</td></tr>
+              <tr><td>Supabase</td><td>Server and database for accounts and guest pages</td><td>London, UK</td></tr>
               <tr><td>Anthropic, OpenAI</td><td>Processing AI requests</td><td>USA</td></tr>
               <tr><td>Google</td><td>Sign-in, Drive, notification delivery, Google Play, ads (AdMob)</td><td>USA and other countries</td></tr>
               <tr><td>Expo</td><td>App updates and notification delivery</td><td>USA</td></tr>
@@ -326,6 +329,7 @@
               <tr><td>Sent notifications queue</td><td>7 days</td></tr>
               <tr><td>Plans, including guests, vendors, costs and the planning conversation</td><td>Until the plan's creator deletes it, or the last organizer leaves or deletes their account. An organizer who deletes their account leaves the plan, which stays for the other organizers. The copy on the phone for follow-up reminders is replaced on every sync and deleted on sign-out</td></tr>
               <tr><td>Reminders to answer an event</td><td>Until the event or either account is deleted</td></tr>
+              <tr><td>Guest answers from guest pages</td><td>Until the guest is removed from the plan or event, or the plan, event or chat is deleted. The key in the guest's browser stays there until the browser's site data is cleared</td></tr>
               <tr><td>AI answer cache</td><td>About 24 hours</td></tr>
               <tr><td>AI use records</td><td>Until the account is deleted</td></tr>
               <tr><td>Purchase, tip and refund records</td><td>While the account exists. When it's deleted, ad reward records are deleted, and tip, refund and adjustment records are kept without identifying the user (the store transaction id, product, amount and time) for up to 7 years, for bookkeeping, tax and disputes, then deleted. Google Play and RevenueCat keep transaction records under their policies</td></tr>
@@ -355,7 +359,7 @@
         <p>We take reasonable measures to protect data, including encryption in transit, per-user access rules in the database and restricted access to systems. No system is completely secure, and we can't guarantee data will never be exposed through an attack or a fault. In a serious security incident we'll act as the law requires, including reporting to the Privacy Protection Authority and notifying affected users. You're responsible for securing your phone, your email or Google account and your backup files.</p>
 
         <h2>16. The lahgog.app website</h2>
-        <p>The website uses no cookies, analytics or tracking tools. Its host (GitHub), like any server, logs IP addresses and basic request data for security and operation, under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">its privacy statement</a>.</p>
+        <p>The website uses no cookies, analytics or tracking tools. On guest pages only, the browser contacts our server (Supabase) to show the invitation and save the answer, and keeps the key for changing it (see <a href="#guests-en">guest pages</a>). Its host (GitHub), like any server, logs IP addresses and basic request data for security and operation, under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">its privacy statement</a>.</p>
 
         <h2>17. Changes</h2>
         <p>We may update this policy. The new version is published on this page with its effective date. A material change, in particular a new use of data or a new recipient, is shown in the app or sent to your account's email at least 30 days before it takes effect, and where the law requires it we'll ask for consent. If you don't agree, you can stop using the Service and delete your account.</p>

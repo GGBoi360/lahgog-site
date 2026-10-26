@@ -16,7 +16,8 @@
       this page is never seen. On Android without the app it sends the visitor to Google Play with the invite in the
       install referrer ("lahgog=<path and query>"), so the app can open the invite on its first launch (deferred deep
       link). GitHub Pages serves this page for any path without a file (it's the 404 page); anything that isn't one
-      of our links shows "not found".
+      of our links shows "not found". /c?d=… is a live countdown (countdown.js); /p/<token> and /g/<token> are guest
+      pages where someone without the app answers a plan's or a chat event's invitation (guest.js).
     -->
     <main>
       <h1 class="brand">לחגוג</h1>
@@ -45,6 +46,33 @@
         <a class="button" id="cdPlay" href="https://play.google.com/store/apps/details?id=com.lahgog.app">לחגוג ב-Google Play</a>
         <p class="note" id="cdNote">באפליקציה אפשר להוסיף את האירוע ללוח ולקבל תזכורת.</p>
       </section>
+      <section class="card guest" id="guest" hidden>
+        <p id="gLoading">טוען את ההזמנה…</p>
+        <div id="gBody" hidden>
+          <h2 id="gTitle"></h2>
+          <p class="g-when" id="gWhen"></p>
+          <p id="gPlace" hidden></p>
+          <p id="gHosts" hidden></p>
+          <p class="g-notes" id="gNotes" hidden></p>
+          <p class="g-going" id="gGoing"></p>
+          <form id="gForm" novalidate>
+            <label class="g-label" for="gName">השם שלכם</label>
+            <input class="g-input" id="gName" name="name" type="text" maxlength="60" autocomplete="name" required />
+            <fieldset class="g-answers">
+              <legend class="g-label">מגיעים?</legend>
+              <label><input type="radio" name="gAnswer" value="going" /> מגיע/ה</label>
+              <label><input type="radio" name="gAnswer" value="maybe" /> אולי</label>
+              <label><input type="radio" name="gAnswer" value="no" /> לא מגיע/ה</label>
+            </fieldset>
+            <label class="g-label" for="gPlus">כמה מגיעים איתכם?</label>
+            <input class="g-input g-plus" id="gPlus" name="plus" type="number" min="0" max="20" value="0" inputmode="numeric" />
+            <p class="g-privacy">השם והתשובה יישמרו אצלנו ויוצגו ל<span id="gWho"></span>, כדי שיידעו מי מגיע. המסירה רשות. הם נשמרים עד שהאירוע נמחק או שמסירים אתכם ממנו, והדפדפן שומר מפתח לשינוי התשובה. לעיון או למחיקה: <a href="mailto:support@lahgog.app">support@lahgog.app</a>. <a href="/privacy#guests">מדיניות הפרטיות</a></p>
+            <p class="g-error" id="gError" role="alert" hidden></p>
+            <button class="button" id="gSubmit" type="submit">שליחת התשובה</button>
+            <p class="note" id="gDone" role="status" hidden>כבר עניתם מהמכשיר הזה. אפשר לעדכן את התשובה.</p>
+          </form>
+        </div>
+      </section>
       <section class="card" id="missing" hidden>
         <h2>הדף לא נמצא</h2>
         <p>אולי הקישור נקטע בדרך.</p>
@@ -66,6 +94,18 @@
         var $ = function (id) { return document.getElementById(id); };
         var path = location.pathname.replace(/\/+$/, '');
         var withCode = /^\/(j|i|f)\/([A-Za-z0-9]{8})$/.exec(path);
+        // Guest pages (R105 /p, R51 /g): answer an invitation without the app (guest.js).
+        var guestLink = /^\/(p|g)\/([A-Za-z0-9]{24})$/.exec(path);
+        if (guestLink) {
+          var gScript = document.createElement('script');
+          gScript.src = '/guest.js';
+          gScript.onload = function () {
+            window.LahgogGuest.show(guestLink[1], guestLink[2], function () { $('missing').hidden = false; });
+          };
+          gScript.onerror = function () { $('missing').hidden = false; };
+          document.head.appendChild(gScript);
+          return;
+        }
         // The live countdown (R84): shown here, ticking, for someone without the app (countdown.js).
         var countdownData = path === '/c' && /[?&]d=([A-Za-z0-9_-]+)/.exec(location.search);
         if (countdownData) {

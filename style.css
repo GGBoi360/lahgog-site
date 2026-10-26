@@ -122,3 +122,17 @@ main.doc table { width: 100%; border-collapse: collapse; font-size: 15px; }
 main.doc th, main.doc td { text-align: start; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
 main.doc th { font-weight: 600; background: var(--card); }
 a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; border-radius: 4px; }
+/* guest pages (/p, /g) */
+.guest h2 { font-size: 26px; margin: 0 0 4px; }
+.guest .g-when { font-weight: 500; color: var(--ink); margin: 0 0 6px; }
+.guest .g-notes { white-space: pre-line; background: var(--paper); border-radius: 12px; padding: 10px 12px; color: var(--ink); }
+.guest .g-going { font-weight: 500; color: var(--coral); }
+.g-label { display: block; font-weight: 600; margin: 14px 0 6px; color: var(--ink); }
+.g-input { width: 100%; font: inherit; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); }
+.g-input:focus-visible { outline: 3px solid var(--saffron); outline-offset: 1px; }
+.g-plus { max-width: 120px; }
+.g-answers { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.g-answers label { display: flex; align-items: center; gap: 6px; font-weight: 500; color: var(--ink); min-height: 44px; }
+.g-answers input { width: 20px; height: 20px; accent-color: var(--coral); }
+.g-privacy { font-size: 13px; color: var(--muted); margin: 18px 0 12px; line-height: 1.5; }
+.g-error { color: #c4381f; font-weight: 500; }
