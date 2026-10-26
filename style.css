@@ -1,21 +1,24 @@
 /* lahgog.app: one small stylesheet for the landing page and the invite page. Colors follow the app's קלאסי skin. */
+@font-face { font-family: 'Rubik'; src: url('/fonts/rubik-400.woff') format('woff'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Rubik'; src: url('/fonts/rubik-500.woff') format('woff'); font-weight: 500 600; font-display: swap; }
+@font-face { font-family: 'Rubik'; src: url('/fonts/rubik-800.woff') format('woff'); font-weight: 700 800; font-display: swap; }
 :root {
   --coral: #e84a2f;
-  --saffron: #f4a62a;
-  --paper: #fff8f1;
+  --saffron: #f5b21b;
+  --paper: #fcfaf7;
   --card: #ffffff;
-  --ink: #2b1d17;
-  --muted: #7a6a62;
-  --line: #f0dfd2;
+  --ink: #1f1a17;
+  --muted: #6b5f58;
+  --line: #efe9e1;
   color-scheme: light dark;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #1c1411;
-    --card: #2a1f1b;
-    --ink: #fbefe6;
-    --muted: #c4b2a8;
-    --line: #3d2e28;
+    --paper: #1a1220;
+    --card: #2a1e31;
+    --ink: #f7f0ea;
+    --muted: #c3b6c8;
+    --line: #34283b;
   }
 }
 * { box-sizing: border-box; }

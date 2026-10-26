@@ -1,6 +1,6 @@
 # lahgog.app (the website)
 
-The finished site from day one (owner, 2026-10-13: no "coming soon" page; it gets no traffic before launch): the
+The site went live on 2026-10-13. Until the listing is public the landing page says "בקרוב ב-Google Play" (owner, 2026-10-14); the
 Play button points at the real listing (`com.lahgog.app`), live once the app is published. On Android, the invite page
 sends a visitor without the app to Google Play after 1.5 seconds, with the invite in the install referrer
 (`lahgog=<path and query>`, when it fits) for a deferred deep link; iPhones see the code and "Android for now".
@@ -9,6 +9,28 @@ A static site, no build step: the landing page (`index.html`), the invite page (
 serves for every path without a file: `/j/<code>`, `/i/<code>`, `/f/<code>`, `/a?d=…`, `/l?d=…`, the links built in
 `src/features/sharing/inviteLinks.ts`), and `/.well-known/assetlinks.json`, which tells Android that the app may open
 `https://lahgog.app/...` links itself (App Links; the intent filter with `autoVerify` is in `app.json`).
+
+## Landing page (since 2026-10-26)
+
+- **Files:**
+  - `index.html` (Hebrew) and `en.html` (English, served at `/en`) share `landing.css` and `landing.js`.
+  - `landing.js` draws today's calendar page (the Gregorian date plus the Hebrew date in Hebrew numerals, from Intl's
+    Hebrew calendar) and a countdown to the next Hanukkah. Nothing is fetched.
+  - Fonts are self-hosted in `fonts/` (Rubik subset, SIL OFL).
+  - Images: `og.png`, `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192/512.png`, `icon.svg`,
+    `flame.svg`.
+  - Metadata: `site.webmanifest`, `robots.txt`, `sitemap.xml`.
+- **Until the Play listing is public**, the pages say "בקרוב ב-Google Play" (no link, no badge, no QR); the invite
+  page keeps its Play button for invites. When the listing is live, add the official Hebrew badge, a QR for desktop
+  and the Google trademark line.
+- **Content rules:**
+  - Claims only from README and data-facts.
+  - The example notifications use the app's real wording (`src/domain/reminders.ts`).
+  - No fake ratings or counts.
+  - Decisions with sources are in `docs/website/DECISIONS.md`.
+- **Regenerating images:** `site/.preview/` holds the templates (git-ignored, never published). Serve `site/`
+  locally, screenshot `og.html` / `icon.html` with headless Edge, and crop with Pillow. Headless Edge's window is at
+  least about 500 px wide, so check phone widths through an iframe (`.preview/frame.html`, 375 px).
 
 ## Legal pages (website session, since 2026-10-14)
 

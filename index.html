@@ -3,40 +3,220 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>לחגוג: ימי הולדת ואירועים</title>
-    <meta name="description" content="לחגוג: ימי הולדת ואירועים עם הלוח העברי, תזכורות בזמן, חברים שמקבלים את יום ההולדת שלך, צ׳אטים ותכנון מסיבות." />
-    <meta name="theme-color" content="#E84A2F" />
-    <meta property="og:title" content="לחגוג" />
-    <meta property="og:description" content="ימי הולדת ואירועים, בלי לפספס אף אחד." />
+    <title>לחגוג: תזכורות לימי הולדת ואירועים, גם לפי התאריך העברי</title>
+    <meta name="description" content="אפליקציה לימי הולדת ואירועים: תזכורות בזמן, יום הולדת עברי מחושב נכון, AI שעוזר לתכנן ולהתכונן, וצ׳אטים עם מי מגיע ומי מביא מה. הורדה חינם לאנדרואיד." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#E84A2F" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1A1220" media="(prefers-color-scheme: dark)" />
+    <link rel="canonical" href="https://lahgog.app/" />
+    <link rel="alternate" hreflang="he" href="https://lahgog.app/" />
+    <link rel="alternate" hreflang="en" href="https://lahgog.app/en" />
+    <link rel="alternate" hreflang="x-default" href="https://lahgog.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="לחגוג" />
+    <meta property="og:title" content="לחגוג: ימי הולדת ואירועים, בלי לפספס אף אחד" />
+    <meta property="og:description" content="תזכורות בזמן, התאריך העברי מחושב נכון, ועזרה בתכנון ובהכנות." />
     <meta property="og:url" content="https://lahgog.app/" />
+    <meta property="og:image" content="https://lahgog.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="דף לוח שנה של לחגוג עם התאריך הלועזי והעברי ונר דולק" />
     <meta property="og:locale" content="he_IL" />
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <main>
-      <h1 class="brand">לחגוג</h1>
-      <p class="lead">ימי הולדת ואירועים, בלי לפספס אף אחד.</p>
-      <a class="button" id="play" href="https://play.google.com/store/apps/details?id=com.lahgog.app">להורדה מ-Google Play</a>
-      <p class="note" id="iosNote" hidden>לחגוג זמינה כרגע לאנדרואיד.</p>
-      <section class="card">
-        <h2>מה יש באפליקציה</h2>
-        <ul>
-          <li>תזכורות בזמן לימי הולדת, ימי נישואין ואירועים, גם בלי אינטרנט</li>
-          <li>התאריך הלועזי לצד התאריך העברי, כולל ימי הולדת לפי הלוח העברי</li>
-          <li>חברים שמקבלים את יום ההולדת שלך מעצמם, ואת שלהם אליך</li>
-          <li>צ׳אטים, תכנון מסיבות, מי מגיע ומי מביא מה</li>
-          <li>ווידג׳טים למסך הבית ועיצובים לבחירה</li>
-          <li>גיבוי וייבוא מאנשי הקשר, מקובץ או מאפליקציה אחרת</li>
-        </ul>
-      </section>
-    </main>
-    <footer>לחגוג · <a href="/privacy">פרטיות</a> · <a href="/terms">תנאי שימוש</a> · <a href="/delete-account">מחיקת חשבון</a> · <a href="/accessibility">הצהרת נגישות</a></footer>
-    <script>
-      // iPhone: there's no iOS app yet, so the Play button would lead nowhere useful.
-      if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-        document.getElementById('play').hidden = true;
-        document.getElementById('iosNote').hidden = false;
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preload" href="/fonts/rubik-800.woff" as="font" type="font/woff" crossorigin />
+    <link rel="stylesheet" href="/landing.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "לחגוג",
+        "alternateName": "Lahgog",
+        "operatingSystem": "Android",
+        "applicationCategory": "LifestyleApplication",
+        "inLanguage": ["he", "en"],
+        "url": "https://lahgog.app/",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ILS" }
       }
     </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">דילוג לתוכן</a>
+    <header class="wrap top">
+      <a class="mark" href="/"><img src="/icon.svg" alt="" width="38" height="38" />לחגוג</a>
+      <a class="lang" href="/en" lang="en" hreflang="en">English</a>
+    </header>
+
+    <main id="main">
+      <section class="wrap hero">
+        <div>
+          <h1>ימי הולדת ואירועים, בלי לפספס אף אחד.</h1>
+          <p class="lead">לחגוג זוכרת בשבילכם את כל מי שחשוב לכם, לפי התאריך העברי או הלועזי, מזכירה בזמן, ועוזרת לתכנן ולהתכונן.</p>
+          <div class="soon" role="status"><strong>בקרוב ב-<bdi>Google Play</bdi></strong><span>הורדה חינם, לאנדרואיד</span></div>
+        </div>
+        <div class="cal" aria-label="היום בלוח השנה">
+          <div class="cal-posts" aria-hidden="true"><i></i><i></i></div>
+          <div class="cal-page">
+            <div class="cal-head" id="calWeekday">היום</div>
+            <div class="cal-day" id="calDay"></div>
+            <div class="cal-month" id="calMonth"></div>
+            <div class="cal-hebrew" id="calHebrew"></div>
+          </div>
+          <img class="cal-flame" src="/flame.svg" alt="" width="84" height="104" />
+        </div>
+      </section>
+
+      <section class="band alt" aria-labelledby="hebrew-title">
+        <div class="wrap hebrew">
+          <div>
+            <h2 id="hebrew-title">יום הולדת עברי, מחושב נכון.</h2>
+            <p class="intro">יום הולדת לפי הלוח העברי נופל בכל שנה בתאריך לועזי אחר. לחגוג מחשבת אותו בשבילכם, כולל המקרים שבהם כולם מתבלבלים:</p>
+            <ul class="cases">
+              <li><strong>נולדים אחרי השקיעה</strong><span>התאריך העברי כבר עבר ליום הבא, וזה מה שנספר.</span></li>
+              <li><strong>אדר א׳ ואדר ב׳</strong><span>בשנה מעוברת, כל אחד חוגג בחודש הנכון.</span></li>
+              <li><strong>ל׳ בחשוון ול׳ בכסלו</strong><span>גם בשנים שבהן אין בחודש יום שלושים.</span></li>
+            </ul>
+          </div>
+          <div class="counter" id="hanukkah">
+            <h3>עד חנוכה</h3>
+            <p id="hanukkahDate"></p>
+            <div class="clock" id="hanukkahClock" aria-live="off">
+              <div><b id="hDays">0</b><small>ימים</small></div>
+              <div><b id="hHours">00</b><small>שעות</small></div>
+              <div><b id="hMinutes">00</b><small>דקות</small></div>
+              <div id="hSecondsBox"><b id="hSeconds">00</b><small>שניות</small></div>
+            </div>
+            <p class="today" id="hanukkahToday" hidden>חנוכה שמח! 🕎</p>
+            <p class="counter-note">חגי ישראל מופיעים בלוח השנה באפליקציה, וכל אירוע אפשר לשתף כספירה לאחור חיה כמו זו.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" aria-labelledby="what-title">
+        <div class="wrap">
+          <h2 id="what-title">מה עושים איתה</h2>
+          <div class="rows">
+            <div class="row">
+              <div>
+                <h3>תזכורת לפני שמאוחר מדי</h3>
+                <p>יום לפני וביום עצמו, או מתי שתבחרו, לכל אחד או לכל תגית. התזכורות מגיעות גם בלי אינטרנט, ווידג׳ט במסך הבית מראה מי הבא בתור.</p>
+              </div>
+              <div class="demo" aria-label="דוגמה להתראה">
+                <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🎂 יום הולדת 22 של דנה</b><span>מחר</span></div></div>
+                <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🥂 10 שנים יחד: דנה ודניאל</b><span>היום 🎉</span></div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <h3>כותבים משפט, והאירוע מוכן</h3>
+                <p>"יום הולדת לאבא ב-10.4" ממלא את הטופס לבד. עם חשבון, ה-AI קורא גם צילום מסך של הזמנה, מתכנן איתכם אירוע עם תאריך ורשימת משימות, וכותב ברכות ורעיונות למתנה.</p>
+              </div>
+              <div class="demo" aria-label="דוגמה למשפט שהופך לאירוע">
+                <div class="typed">יום הולדת לאבא ב-10.4</div>
+                <dl class="filled">
+                  <dt>סוג</dt><dd>יום הולדת 🎂</dd>
+                  <dt>מי</dt><dd>אבא</dd>
+                  <dt>מתי</dt><dd>10 באפריל</dd>
+                </dl>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <h3>חוגגים ביחד</h3>
+                <p>צ׳אטים עם החברים והמשפחה, הצבעה על תאריך, מי מגיע ומי מביא מה. חברים מקבלים את יום ההולדת שלכם רק אם בחרתם לשתף.</p>
+              </div>
+              <div class="demo" aria-label="דוגמה לאירוע בצ׳אט">
+                <div class="event-head"><b>ארוחת שישי</b><span>יום שישי, 20:00</span></div>
+                <div class="going">✓ 9 מגיעים</div>
+                <div class="chips"><span class="chip done">עוגה: דנה</span><span class="chip done">שתייה: דניאל</span><span class="chip">בלונים</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band alt" aria-labelledby="skins-title">
+        <div class="wrap">
+          <h2 id="skins-title">עיצוב שמתאים לכם</h2>
+          <p class="intro">העיצוב צובע את כל האפליקציה, כולל הווידג׳ט. חלק מהעיצובים בתשלום, וזה מוצג לפני כל רכישה.</p>
+          <ul class="skins">
+            <li><i style="--sbg:#FCFAF7;--sac:#E84A2F"></i>קלאסי</li>
+            <li><i style="--sbg:#FBF6F9;--sac:#7A2E5C"></i>מלכה</li>
+            <li><i style="--sbg:#F3F6FF;--sac:#0E7490"></i>קוסמוס</li>
+            <li><i style="--sbg:#F7F5FF;--sac:#0F766E"></i>קסם</li>
+            <li><i style="--sbg:#F4F7F0;--sac:#3F6212"></i>יורה</li>
+            <li><i style="--sbg:#F4F6FA;--sac:#1E3A8A"></i>עיר הגיבורים</li>
+            <li><i style="--sbg:#F0F9FA;--sac:#0F766E"></i>מעמקים</li>
+            <li><i style="--sbg:#FFF0F7;--sac:#BE185D"></i>ורוד חגיגי</li>
+            <li><i style="--sbg:#FFFBEB;--sac:#B45309"></i>עוגת קצפת</li>
+            <li><i style="--sbg:#FFF7ED;--sac:#B91C1C"></i>בלונים</li>
+            <li><i style="--sbg:#FAFAF9;--sac:#7C3AED"></i>קונפטי</li>
+            <li><i style="--sbg:#F0F4FF;--sac:#1E3A8A"></i>חצות</li>
+            <li><i style="--sbg:#FBF5EE;--sac:#8A4F00"></i>ליקוי</li>
+            <li><i style="--sbg:#F0FDFF;--sac:#0E7490"></i>אוקיינוס</li>
+            <li><i style="--sbg:#F0FDF9;--sac:#047857"></i>יער</li>
+            <li><i style="--sbg:#FFFFFF;--sac:#000000"></i>ניגודיות גבוהה</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="band" aria-labelledby="privacy-title">
+        <div class="wrap">
+          <h2 id="privacy-title">הרשימה שלכם נשארת שלכם.</h2>
+          <ul class="facts">
+            <li>בלי חשבון, הכול נשמר רק בטלפון.</li>
+            <li>בלי כלי מעקב, ובלי מכירה של מידע.</li>
+            <li>חשבון הוא בחירה: לחברים, לצ׳אטים, לגיבוי בענן ול-AI.</li>
+          </ul>
+          <a href="/privacy">למדיניות הפרטיות</a>
+        </div>
+      </section>
+
+      <section class="band alt" aria-labelledby="faq-title">
+        <div class="wrap faq">
+          <h2 id="faq-title">שאלות</h2>
+          <details>
+            <summary>כמה זה עולה?</summary>
+            <p>ההורדה חינם. חלק מהעיצובים והתוספות בתשלום, כפי שמוצג באפליקציה לפני כל רכישה.</p>
+          </details>
+          <details>
+            <summary>צריך חשבון?</summary>
+            <p>לא. בלי חשבון הכול עובד בטלפון. חשבון נדרש רק לחברים, לצ׳אטים, לגיבוי בענן ול-AI.</p>
+          </details>
+          <details>
+            <summary>יש לאייפון?</summary>
+            <p>לחגוג זמינה כרגע לאנדרואיד.</p>
+          </details>
+          <details>
+            <summary>מה ה-AI רואה?</summary>
+            <p>ה-AI פועל רק כשמבקשים ממנו, ולפני השימוש הראשון מוסבר מה נשלח. אפשר לכבות אותו בהגדרות. הפרטים ב<a href="/privacy#p6">מדיניות הפרטיות</a>.</p>
+          </details>
+          <details>
+            <summary>אפשר לסמוך על התאריכים העבריים?</summary>
+            <p>החישוב נעשה לפי הלוח העברי המקובל, כולל אדר א׳ ואדר ב׳. במועדים שיש להם משמעות דתית, כמו אזכרה או בר מצווה, כדאי לאמת מול מקור מוסמך.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="wrap closing">
+        <h2>ימי הולדת ואירועים, בלי לפספס אף אחד.</h2>
+        <div class="soon" role="status"><strong>בקרוב ב-<bdi>Google Play</bdi></strong><span>הורדה חינם, לאנדרואיד</span></div>
+      </section>
+    </main>
+
+    <footer class="wrap foot">
+      <nav aria-label="קישורים">
+        <a href="/privacy">פרטיות</a>
+        <a href="/terms">תנאי שימוש</a>
+        <a href="/accessibility">הצהרת נגישות</a>
+        <a href="/delete-account">מחיקת חשבון</a>
+        <a href="mailto:support@lahgog.app">support@lahgog.app</a>
+      </nav>
+      <p>לחגוג</p>
+    </footer>
+    <script src="/landing.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lahgog: birthday and event reminders, Hebrew calendar included</title>
+    <meta name="description" content="A birthday and events app: reminders on time, Hebrew birthdays calculated right, AI that helps you plan and get ready, and chats with who's coming and who brings what. Free download for Android." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#E84A2F" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1A1220" media="(prefers-color-scheme: dark)" />
+    <link rel="canonical" href="https://lahgog.app/en" />
+    <link rel="alternate" hreflang="he" href="https://lahgog.app/" />
+    <link rel="alternate" hreflang="en" href="https://lahgog.app/en" />
+    <link rel="alternate" hreflang="x-default" href="https://lahgog.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lahgog" />
+    <meta property="og:title" content="Lahgog: birthdays and events, never miss anyone" />
+    <meta property="og:description" content="Reminders on time, the Hebrew date done right, and help planning and getting ready." />
+    <meta property="og:url" content="https://lahgog.app/en" />
+    <meta property="og:image" content="https://lahgog.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A Lahgog calendar page with the Gregorian and Hebrew date and a lit candle" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preload" href="/fonts/rubik-800.woff" as="font" type="font/woff" crossorigin />
+    <link rel="stylesheet" href="/landing.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Lahgog",
+        "alternateName": "לחגוג",
+        "operatingSystem": "Android",
+        "applicationCategory": "LifestyleApplication",
+        "inLanguage": ["he", "en"],
+        "url": "https://lahgog.app/en",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ILS" }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="wrap top">
+      <a class="mark" href="/en"><img src="/icon.svg" alt="" width="38" height="38" />Lahgog</a>
+      <a class="lang" href="/" lang="he" hreflang="he">עברית</a>
+    </header>
+
+    <main id="main">
+      <section class="wrap hero">
+        <div>
+          <h1>Birthdays and events, never miss anyone.</h1>
+          <p class="lead">Lahgog remembers everyone who matters to you, by the Hebrew or the Gregorian date, reminds you on time, and helps you plan and get ready.</p>
+          <div class="soon" role="status"><strong>Coming soon to Google Play</strong><span>Free download, for Android</span></div>
+        </div>
+        <div class="cal" aria-label="Today on the calendar">
+          <div class="cal-posts" aria-hidden="true"><i></i><i></i></div>
+          <div class="cal-page">
+            <div class="cal-head" id="calWeekday">Today</div>
+            <div class="cal-day" id="calDay"></div>
+            <div class="cal-month" id="calMonth"></div>
+            <div class="cal-hebrew" id="calHebrew"></div>
+          </div>
+          <img class="cal-flame" src="/flame.svg" alt="" width="84" height="104" />
+        </div>
+      </section>
+
+      <section class="band alt" aria-labelledby="hebrew-title">
+        <div class="wrap hebrew">
+          <div>
+            <h2 id="hebrew-title">Hebrew birthdays, calculated right.</h2>
+            <p class="intro">A Hebrew-calendar birthday falls on a different Gregorian date every year. Lahgog works it out for you, including the cases everyone gets wrong:</p>
+            <ul class="cases">
+              <li><strong>Born after sunset</strong><span>The Hebrew date had already moved to the next day, and that's the one that counts.</span></li>
+              <li><strong>Adar I and Adar II</strong><span>In a leap year, everyone celebrates in the right month.</span></li>
+              <li><strong>The 30th of Heshvan or Kislev</strong><span>Even in years when the month has no 30th.</span></li>
+            </ul>
+          </div>
+          <div class="counter" id="hanukkah">
+            <h3>Until Hanukkah</h3>
+            <p id="hanukkahDate"></p>
+            <div class="clock" id="hanukkahClock" aria-live="off">
+              <div><b id="hDays">0</b><small>days</small></div>
+              <div><b id="hHours">00</b><small>hours</small></div>
+              <div><b id="hMinutes">00</b><small>minutes</small></div>
+              <div id="hSecondsBox"><b id="hSeconds">00</b><small>seconds</small></div>
+            </div>
+            <p class="today" id="hanukkahToday" hidden>Happy Hanukkah! 🕎</p>
+            <p class="counter-note">Israeli holidays are in the app's calendar, and any event can be shared as a live countdown like this one.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" aria-labelledby="what-title">
+        <div class="wrap">
+          <h2 id="what-title">What you can do with it</h2>
+          <div class="rows">
+            <div class="row">
+              <div>
+                <h3>A reminder before it's too late</h3>
+                <p>The day before and on the day, or whenever you choose, for each person or each tag. Reminders arrive even without internet, and a home-screen widget shows who's next.</p>
+              </div>
+              <div class="demo" aria-label="An example notification">
+                <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🎂 Dana's 22nd birthday</b><span>Tomorrow</span></div></div>
+                <div class="notif"><img src="/icon.svg" alt="" width="34" height="34" /><div><b>🥂 10 years together: Dana and Daniel</b><span>Today 🎉</span></div></div>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <h3>Write a sentence, and the event is ready</h3>
+                <p>"Dad's birthday on 10.4" fills in the form by itself. With an account, the AI also reads a screenshot of an invitation, plans an event with you, with a date and a to-do list, and writes wishes and gift ideas.</p>
+              </div>
+              <div class="demo" aria-label="An example of a sentence becoming an event">
+                <div class="typed">Dad's birthday on 10.4</div>
+                <dl class="filled">
+                  <dt>Type</dt><dd>Birthday 🎂</dd>
+                  <dt>Who</dt><dd>Dad</dd>
+                  <dt>When</dt><dd>10 April</dd>
+                </dl>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <h3>Celebrate together</h3>
+                <p>Chats with friends and family, a vote on the date, who's coming and who brings what. Friends get your birthday only if you choose to share it.</p>
+              </div>
+              <div class="demo" aria-label="An example of an event in a chat">
+                <div class="event-head"><b>Friday dinner</b><span>Friday, 20:00</span></div>
+                <div class="going">✓ 9 coming</div>
+                <div class="chips"><span class="chip done">Cake: Dana</span><span class="chip done">Drinks: Daniel</span><span class="chip">Balloons</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band alt" aria-labelledby="skins-title">
+        <div class="wrap">
+          <h2 id="skins-title">A look that suits you</h2>
+          <p class="intro">A skin colors the whole app, widget included. Some skins are paid, and that's shown before any purchase.</p>
+          <ul class="skins">
+            <li><i style="--sbg:#FCFAF7;--sac:#E84A2F"></i>Classic</li>
+            <li><i style="--sbg:#FBF6F9;--sac:#7A2E5C"></i>Queen</li>
+            <li><i style="--sbg:#F3F6FF;--sac:#0E7490"></i>Cosmos</li>
+            <li><i style="--sbg:#F7F5FF;--sac:#0F766E"></i>Enchanted</li>
+            <li><i style="--sbg:#F4F7F0;--sac:#3F6212"></i>Jurassic</li>
+            <li><i style="--sbg:#F4F6FA;--sac:#1E3A8A"></i>Hero City</li>
+            <li><i style="--sbg:#F0F9FA;--sac:#0F766E"></i>Deep sea</li>
+            <li><i style="--sbg:#FFF0F7;--sac:#BE185D"></i>Pink party</li>
+            <li><i style="--sbg:#FFFBEB;--sac:#B45309"></i>Cream cake</li>
+            <li><i style="--sbg:#FFF7ED;--sac:#B91C1C"></i>Balloons</li>
+            <li><i style="--sbg:#FAFAF9;--sac:#7C3AED"></i>Confetti</li>
+            <li><i style="--sbg:#F0F4FF;--sac:#1E3A8A"></i>Midnight</li>
+            <li><i style="--sbg:#FBF5EE;--sac:#8A4F00"></i>Eclipse</li>
+            <li><i style="--sbg:#F0FDFF;--sac:#0E7490"></i>Ocean</li>
+            <li><i style="--sbg:#F0FDF9;--sac:#047857"></i>Forest</li>
+            <li><i style="--sbg:#FFFFFF;--sac:#000000"></i>High contrast</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="band" aria-labelledby="privacy-title">
+        <div class="wrap">
+          <h2 id="privacy-title">Your list stays yours.</h2>
+          <ul class="facts">
+            <li>Without an account, everything stays on your phone.</li>
+            <li>No tracking tools, and no selling of data.</li>
+            <li>An account is your choice: for friends, chats, the cloud copy and AI.</li>
+          </ul>
+          <a href="/privacy#en">Privacy policy</a>
+        </div>
+      </section>
+
+      <section class="band alt" aria-labelledby="faq-title">
+        <div class="wrap faq">
+          <h2 id="faq-title">Questions</h2>
+          <details>
+            <summary>How much does it cost?</summary>
+            <p>The download is free. Some skins and extras are paid, as shown in the app before any purchase.</p>
+          </details>
+          <details>
+            <summary>Do I need an account?</summary>
+            <p>No. Without an account everything works on your phone. An account is needed only for friends, chats, the cloud copy and AI.</p>
+          </details>
+          <details>
+            <summary>Is there an iPhone version?</summary>
+            <p>Lahgog is available for Android for now.</p>
+          </details>
+          <details>
+            <summary>What does the AI see?</summary>
+            <p>The AI runs only when you ask, and the app explains what is sent before the first use. You can turn it off in Settings. Details are in the <a href="/privacy#en">privacy policy</a>.</p>
+          </details>
+          <details>
+            <summary>Can I rely on the Hebrew dates?</summary>
+            <p>They follow the standard Hebrew calendar, Adar I and Adar II included. For dates with religious meaning, such as a memorial or a bar mitzvah, check with an authoritative source.</p>
+          </details>
+          <details>
+            <summary>Is the app in English?</summary>
+            <p>Yes. The app is Hebrew first, and you can switch it to English in Settings.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="wrap closing">
+        <h2>Birthdays and events, never miss anyone.</h2>
+        <div class="soon" role="status"><strong>Coming soon to Google Play</strong><span>Free download, for Android</span></div>
+      </section>
+    </main>
+
+    <footer class="wrap foot">
+      <nav aria-label="Links">
+        <a href="/privacy#en">Privacy</a>
+        <a href="/terms#en">Terms</a>
+        <a href="/accessibility#en">Accessibility</a>
+        <a href="/delete-account#en">Delete account</a>
+        <a href="mailto:support@lahgog.app">support@lahgog.app</a>
+      </nav>
+      <p>Lahgog</p>
+    </footer>
+    <script src="/landing.js" defer></script>
+  </body>
+</html>
