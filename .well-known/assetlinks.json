@@ -6,5 +6,13 @@
       "package_name": "com.lahgog.app.preview",
       "sha256_cert_fingerprints": ["BE:1D:02:D2:85:9D:72:3A:E2:90:D7:CC:CD:62:AC:4C:0E:A0:25:B7:75:15:82:18:BC:52:72:18:50:5E:85:2B"]
     }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.lahgog.app",
+      "sha256_cert_fingerprints": ["CD:05:9D:97:A2:55:CA:05:B3:8D:8F:70:B8:76:E9:A0:B0:9B:B6:0D:A5:EC:13:86:E2:42:BC:B3:12:1D:BD:7A"]
+    }
   }
 ]

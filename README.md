@@ -73,7 +73,7 @@ One entry per Android package and signing key:
 | Package | Key | SHA-256 |
 |---|---|---|
 | `com.lahgog.app.preview` | EAS keystore, created 2026-10-13 | `BE:1D:02:…:85:2B`, read from the build's APK (v2 signature block) |
-| `com.lahgog.app` | Google Play App Signing | add when the app is first uploaded to Play (Play Console → App integrity) |
+| `com.lahgog.app` | Google Play App Signing (owner sent it 2026-10-27, via the app session) | `CD:05:9D:…:1D:BD:7A` (the SHA-1, for the Android OAuth client only, isn't needed here) |
 
 ## Publishing a change
 
