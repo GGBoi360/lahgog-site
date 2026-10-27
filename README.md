@@ -61,8 +61,10 @@ prevails.
   safety form.
 - Any change to the privacy page also updates `docs/store/play-data-safety.md`.
 - Bump the version and effective date on every change. A material change needs notice of 30 days (both pages; privacy
-  §17, terms §17). After changing the terms, also raise `TERMS_VERSION` in the app (`src/features/legal/legal.ts`)
-  so the app asks for acceptance again.
+  §17, terms §17). After a **material** change to the terms (terms §17: one against users), also raise
+  `TERMS_VERSION` in the app (`src/features/legal/legal.ts`) so the app asks for acceptance again. A clarification
+  that takes nothing from users (like v2.2 on 2026-10-27) doesn't re-ask everyone; record the reasoning in DECISIONS.
+- `app-ads.txt` (AdMob) sits at the site root and needs lahgog.app as the developer website in the Play listing.
 
 ## assetlinks.json
 
