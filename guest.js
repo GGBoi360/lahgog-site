@@ -33,11 +33,18 @@
     };
   }
 
-  function dateLabel(iso) {
+  // One day: "יום שבת, 14 בנובמבר". Several (a chat event's spanDays, 1-30 more days): "3–6 בנובמבר", or across
+  // months "30 בנובמבר – 2 בדצמבר".
+  function dateLabel(iso, spanDays) {
     if (!iso) return '';
     var p = iso.split('-');
     var d = new Date(+p[0], +p[1] - 1, +p[2]);
-    return new Intl.DateTimeFormat('he-IL', { weekday: 'long', day: 'numeric', month: 'long' }).format(d);
+    var extra = Math.max(0, Math.min(30, parseInt(spanDays, 10) || 0));
+    if (!extra) return new Intl.DateTimeFormat('he-IL', { weekday: 'long', day: 'numeric', month: 'long' }).format(d);
+    var end = new Date(+p[0], +p[1] - 1, +p[2] + extra);
+    var dayMonth = new Intl.DateTimeFormat('he-IL', { day: 'numeric', month: 'long' });
+    if (end.getMonth() === d.getMonth()) return d.getDate() + '–' + dayMonth.format(end);
+    return dayMonth.format(d) + ' – ' + dayMonth.format(end);
   }
 
   function joinNames(list) {
@@ -56,7 +63,7 @@
       call(cfg.view, { p_token: token }).then(function (ev) {
         if (!ev) { $('guest').hidden = true; return onMissing(); }
         $('gTitle').textContent = ev.title || '';
-        var when = [dateLabel(ev.startsOn), ev.startTime ? 'בשעה ' + String(ev.startTime).slice(0, 5) : ''].filter(Boolean).join(', ');
+        var when = [dateLabel(ev.startsOn, ev.spanDays), ev.startTime ? 'בשעה ' + String(ev.startTime).slice(0, 5) : ''].filter(Boolean).join(', ');
         $('gWhen').textContent = when || 'התאריך עוד לא נקבע';
         if (ev.place) { $('gPlace').textContent = '📍 ' + ev.place; $('gPlace').hidden = false; }
         var hosts = kind === 'p' ? joinNames(ev.hosts) : ev.host;
