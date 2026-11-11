@@ -36,6 +36,13 @@ from `p/index.html` with `fetch` stubbed (scratchpad `mkmock.cjs`).
   - Fonts are self-hosted in `fonts/` (Rubik subset, SIL OFL).
   - Images: `og.png` (Hebrew), `og-en.png` (English), `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192/512.png`, `icon.svg`,
     `flame.svg`.
+  - The icon (since 2026-11-11) is the app's 2026 icon (R116, the candle-ל): `icon.svg` / `favicon.svg` are
+    `assets/brand/icon-2026/background.svg` + `foreground.svg` in one SVG, cropped to `viewBox="60 60 312 312"` to match
+    `play-512.png`; the PNGs are rendered from it. Re-render the `og*.png` images after any icon change (their templates
+    in `.preview/` read `/icon.svg`).
+  - Real screens in `shots/` (WebP, 600 px wide, from `store/graphics/raw/`, the demo copy with sample people): the
+    home screen in the hero, the Ocean skin and the skin picker in the skins section. Hebrew screens on both pages until
+    English ones are taken. Planning and AI still use drawn examples: no real screens of them yet.
   - Metadata: `site.webmanifest`, `robots.txt`, `sitemap.xml`.
 - **Until the Play listing is public**, the pages say "בקרוב ב-Google Play" (no link, no badge, no QR); the invite
   page keeps its Play button for invites. When the listing is live, add the official Hebrew badge, a QR for desktop
