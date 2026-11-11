@@ -255,11 +255,15 @@ img { max-width: 100%; height: auto; }
   .stack .shot { position: static; width: 240px; }
   .snap { display: none; }
 }
-/* skins: two real screens beside the list */
-.skin-shots { display: flex; justify-content: center; gap: 18px; margin-bottom: 28px; }
-.skin-shots .shot { width: min(42vw, 220px); }
-.skin-shots .shot:nth-child(1) { transform: rotate(-3deg); }
-.skin-shots .shot:nth-child(2) { transform: rotate(3deg) translateY(18px); }
+/* two real screens side by side (skins, the planner) */
+.pair { display: flex; justify-content: center; gap: 18px; margin-bottom: 28px; }
+.pair .shot { width: min(42vw, 230px); }
+.pair .shot:nth-child(1) { transform: rotate(-3deg); }
+.pair .shot:nth-child(2) { transform: rotate(3deg) translateY(18px); }
+.planner .pair { margin-bottom: 0; align-self: center; }
+/* a real screen fragment inside an AI card */
+.card-shot { margin: 0; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: #fff; }
+.card-shot img { display: block; width: 100%; height: auto; }
 .prog { display: block; height: 8px; border-radius: 999px; background: rgba(255, 255, 255, 0.25); margin-top: 8px; overflow: hidden; }
 .prog i { display: block; height: 100%; width: 66%; background: #f5b21b; border-radius: 999px; }
 @media (prefers-reduced-motion: no-preference) {

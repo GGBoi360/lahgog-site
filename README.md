@@ -40,9 +40,17 @@ from `p/index.html` with `fetch` stubbed (scratchpad `mkmock.cjs`).
     `assets/brand/icon-2026/background.svg` + `foreground.svg` in one SVG, cropped to `viewBox="60 60 312 312"` to match
     `play-512.png`; the PNGs are rendered from it. Re-render the `og*.png` images after any icon change (their templates
     in `.preview/` read `/icon.svg`).
-  - Real screens in `shots/` (WebP, 600 px wide, from `store/graphics/raw/`, the demo copy with sample people): the
-    home screen in the hero, the Ocean skin and the skin picker in the skins section. Hebrew screens on both pages until
-    English ones are taken. Planning and AI still use drawn examples: no real screens of them yet.
+  - Real screens in `shots/` (WebP, 600 px wide), from the demo copy with sample people (`store/graphics/raw/` and
+    `raw-en/`; the ones taken for the site, signed in to a demo account on 2026-11-12, in `store/graphics/site-raw/`):
+    - Hebrew: the home screen (hero), Cream Cake and the skin picker (skins), the AI's wishes and gift ideas for
+      סבתא רחל (cropped to the sheet, in the AI cards), the planner's conversation and the plan card (planner).
+    - English: the home screen, Cream Cake and the skin picker; the planner and AI keep their drawn English examples
+      until English screens of them are taken.
+    - Still drawn: "a sentence becomes an event" (the result is the point; a real one needs Hebrew typing on the
+      phone), the organizer tiles, the chat vote (the demo account has no friends), and the guest list (waiting for
+      headcounts in the app, the owner's ask of 2026-11-12).
+    - Taking more: `uiautomator` can't read the screen while a skin animates; turn on the app's "remove animations"
+      first. adb can't type Hebrew, so typed messages need the owner.
   - Metadata: `site.webmanifest`, `robots.txt`, `sitemap.xml`.
 - **Until the Play listing is public**, the pages say "בקרוב ב-Google Play" (no link, no badge, no QR); the invite
   page keeps its Play button for invites. When the listing is live, add the official Hebrew badge, a QR for desktop
