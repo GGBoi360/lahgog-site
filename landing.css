@@ -286,7 +286,7 @@ img { max-width: 100%; height: auto; }
 
 /* ---- the Hebrew-birthday calculator (/hebrew-birthday) ---- */
 .calc-hero { padding-bottom: 8px; }
-.calc-card { background: #fff8f2; color: #1f1a17; border-radius: 28px; padding: 24px; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.7); max-width: 460px; width: 100%; justify-self: center; display: grid; gap: 14px; }
+.calc-card { color-scheme: light; background: #fff8f2; color: #1f1a17; border-radius: 28px; padding: 24px; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.7); max-width: 460px; width: 100%; justify-self: center; display: grid; gap: 14px; }
 .calc-card form { display: grid; gap: 10px; }
 .calc-card label { font-weight: 800; font-size: 16px; }
 .calc-card input[type='date'] { font: inherit; font-size: 18px; padding: 12px 14px; border-radius: 14px; border: 1.5px solid #e6d9cc; background: #fff; color: #1f1a17; }

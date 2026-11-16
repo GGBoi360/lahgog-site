@@ -23,7 +23,15 @@
     try { return clean(decodeURIComponent(m[1])); } catch (_e) { return ''; }
   }
   function daysIn(month, year) { return new Date(year || 2024, month, 0).getDate(); }
-  function openWhatsApp(text) { window.location.href = 'https://wa.me/?text=' + encodeURIComponent(text); }
+  // A phone hands wa.me to the WhatsApp app; a computer opens it in a new tab, so this page (and its copy box) stays.
+  function openWhatsApp(text) {
+    var url = 'https://wa.me/?text=' + encodeURIComponent(text);
+    var desktop = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    // (Not the 'noopener' feature: with it window.open always returns null, so a blocked popup couldn't be told apart.)
+    var tab = desktop ? window.open(url, '_blank') : null;
+    if (tab) tab.opener = null;
+    else window.location.href = url;
+  }
   function copy(text, button, done) {
     if (!navigator.clipboard) return;
     navigator.clipboard.writeText(text).then(function () { button.textContent = done; });

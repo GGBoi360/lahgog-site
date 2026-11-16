@@ -113,6 +113,21 @@
     e.preventDefault();
     run(input.value, sunset.checked, true);
   });
+  // The result's address (the date after "#") through the phone's share sheet, or copied where there is none.
+  var shareBtn = $('share');
+  shareBtn.addEventListener('click', function () {
+    if (!valid(input.value)) return;
+    run(input.value, sunset.checked, true);
+    var url = location.href;
+    if (navigator.share) {
+      navigator.share({ title: 'יום ההולדת העברי שלי', text: 'התאריך העברי: ' + $('rHebrew').textContent, url: url }).catch(function () { /* closed */ });
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(function () {
+        shareBtn.textContent = '✓ הקישור הועתק';
+        setTimeout(function () { shareBtn.textContent = '🔗 שיתוף'; }, 2500);
+      });
+    }
+  });
   var m = /d=(\d{4}-\d{2}-\d{2})/.exec(location.hash);
   if (m && valid(m[1])) {
     input.value = m[1];
