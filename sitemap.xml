@@ -10,6 +10,9 @@
     <xhtml:link rel="alternate" hreflang="he" href="https://lahgog.app/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://lahgog.app/en" />
   </url>
+  <url><loc>https://lahgog.app/hebrew-birthday</loc></url>
+  <url><loc>https://lahgog.app/collect</loc></url>
+  <url><loc>https://lahgog.app/community</loc></url>
   <url><loc>https://lahgog.app/privacy</loc></url>
   <url><loc>https://lahgog.app/terms</loc></url>
   <url><loc>https://lahgog.app/accessibility</loc></url>

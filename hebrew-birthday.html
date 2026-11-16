@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>מחשבון יום הולדת עברי: מה התאריך העברי שלי ומתי הוא השנה | לחגוג</title>
+    <meta name="description" content="מכניסים תאריך לידה ומקבלים את התאריך העברי, מתי יוצא יום ההולדת העברי השנה ובשנים הבאות, ומתי הבר או הבת מצווה. כולל לידה אחרי השקיעה, אדר בשנה מעוברת ול׳ בחשוון." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#24152F" />
+    <link rel="canonical" href="https://lahgog.app/hebrew-birthday" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="לחגוג" />
+    <meta property="og:title" content="מחשבון יום הולדת עברי" />
+    <meta property="og:description" content="מה התאריך העברי שלכם, ומתי יוצא יום ההולדת העברי השנה." />
+    <meta property="og:url" content="https://lahgog.app/hebrew-birthday" />
+    <meta property="og:image" content="https://lahgog.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="he_IL" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preload" href="/fonts/rubik-800.woff" as="font" type="font/woff" crossorigin />
+    <link rel="stylesheet" href="/landing.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "מחשבון יום הולדת עברי",
+        "url": "https://lahgog.app/hebrew-birthday",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "inLanguage": "he",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ILS" },
+        "publisher": { "@type": "Organization", "name": "לחגוג", "url": "https://lahgog.app/" }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">דילוג לתוכן</a>
+
+    <div class="stage">
+      <header class="wrap top">
+        <a class="mark" href="/"><img src="/icon.svg" alt="" width="40" height="40" />לחגוג</a>
+      </header>
+      <section class="wrap hero calc-hero" id="main">
+        <div>
+          <h1>מחשבון יום הולדת עברי.</h1>
+          <p class="lead">מה התאריך העברי שלכם, מתי הוא יוצא השנה ובשנים הבאות, ומתי הבר או הבת מצווה.</p>
+        </div>
+        <div class="calc-card">
+          <form id="calc" novalidate>
+            <label for="birth">תאריך הלידה</label>
+            <input id="birth" name="birth" type="date" min="1900-01-01" max="2100-12-31" required />
+            <label class="check"><input id="sunset" type="checkbox" /> נולדתי אחרי השקיעה</label>
+            <button class="go-btn" type="submit">חישוב</button>
+            <p class="calc-error" id="error" role="alert" hidden>בחרו תאריך לידה בין 1900 ל-2100.</p>
+          </form>
+          <div id="result" aria-live="polite" hidden>
+            <p class="r-label">התאריך העברי</p>
+            <p class="r-big" id="rHebrew"></p>
+            <p class="r-label">יום ההולדת העברי הבא</p>
+            <p class="r-mid" id="rNext"></p>
+            <p class="r-sub" id="rNextIn"></p>
+            <p class="r-label">בשנים הבאות</p>
+            <ul class="r-years" id="rYears"></ul>
+            <div class="r-mitzva">
+              <p><span>בר מצווה (13)</span><b id="rBar"></b></p>
+              <p><span>בת מצווה (12)</span><b id="rBat"></b></p>
+            </div>
+          </div>
+          <p class="calc-note">החישוב נעשה בדפדפן שלכם, ותאריך הלידה לא נשלח לשום מקום.</p>
+        </div>
+      </section>
+    </div>
+
+    <main>
+      <section class="band" aria-labelledby="how-title">
+        <div class="wrap">
+          <h2 id="how-title">איך זה עובד.</h2>
+          <div class="faq">
+            <details open>
+              <summary>מה זה יום הולדת עברי?</summary>
+              <p>התאריך בלוח העברי שבו נולדתם, למשל י״ח בחשוון. הלוח העברי הוא לוח ירחי-שמשי, ולכן יום ההולדת העברי נופל בכל שנה בתאריך לועזי אחר, לרוב בטווח של כמה שבועות.</p>
+            </details>
+            <details>
+              <summary>נולדתי בערב. למה זה משנה?</summary>
+              <p>היום העברי מתחיל בשקיעה. מי שנולד אחרי השקיעה נולד כבר בתאריך העברי של היום שאחרי. סמנו "נולדתי אחרי השקיעה" והמחשבון יחשב לפי היום הבא.</p>
+            </details>
+            <details>
+              <summary>נולדתי באדר. מתי החגיגה בשנה מעוברת?</summary>
+              <p>בשנה מעוברת יש שני חודשי אדר. מי שנולד באדר של שנה רגילה חוגג באדר ב׳. מי שנולד באדר א׳ או באדר ב׳ של שנה מעוברת חוגג באותו אדר בשנה מעוברת, ובאדר בשנה רגילה.</p>
+            </details>
+            <details>
+              <summary>נולדתי בל׳ בחשוון או בל׳ בכסלו.</summary>
+              <p>בחלק מהשנים לחשוון ולכסלו יש רק 29 ימים. בשנים כאלה יום ההולדת עובר לראש החודש שאחרי: א׳ בכסלו או א׳ בטבת.</p>
+            </details>
+            <details>
+              <summary>איך מחושבת הבר והבת מצווה?</summary>
+              <p>בר מצווה ביום ההולדת העברי ה-13, ובת מצווה ביום ההולדת העברי ה-12, לפי אותם כללים של שקיעה, אדר ול׳ בחודש. כדאי לבדוק מול רב או קהילה אם יש מנהג אחר.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="wrap">
+        <h2 id="closing-title">לחגוג זוכרת את יום ההולדת העברי בשבילכם.</h2>
+        <p>תזכורת כל שנה לפי התאריך העברי, לכם ולכל מי שחשוב לכם. <a href="/">מה עוד יש בלחגוג</a></p>
+        <div class="soon" role="status"><strong>בקרוב ב-<bdi>Google Play</bdi></strong><span>הורדה חינם, לאנדרואיד</span></div>
+      </div>
+    </section>
+
+    <footer class="wrap foot">
+      <nav aria-label="קישורים">
+        <a href="/">לחגוג</a>
+        <a href="/privacy">פרטיות</a>
+        <a href="/terms">תנאי שימוש</a>
+        <a href="/accessibility">הצהרת נגישות</a>
+        <a href="mailto:support@lahgog.app">support@lahgog.app</a>
+      </nav>
+      <p>לחגוג</p>
+    </footer>
+    <script src="/vendor/hebcal-core-6.9.3.min.js"></script>
+    <script src="/hebrew-birthday.js"></script>
+  </body>
+</html>

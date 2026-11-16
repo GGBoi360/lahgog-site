@@ -283,3 +283,42 @@ img { max-width: 100%; height: auto; }
 .how strong { font-size: 20px; font-weight: 800; }
 .how span { color: var(--muted); }
 .planner .intro { font-size: 17px; }
+
+/* ---- the Hebrew-birthday calculator (/hebrew-birthday) ---- */
+.calc-hero { padding-bottom: 8px; }
+.calc-card { background: #fff8f2; color: #1f1a17; border-radius: 28px; padding: 24px; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.7); max-width: 460px; width: 100%; justify-self: center; display: grid; gap: 14px; }
+.calc-card form { display: grid; gap: 10px; }
+.calc-card label { font-weight: 800; font-size: 16px; }
+.calc-card input[type='date'] { font: inherit; font-size: 18px; padding: 12px 14px; border-radius: 14px; border: 1.5px solid #e6d9cc; background: #fff; color: #1f1a17; }
+.calc-card .check { display: flex; align-items: center; gap: 8px; font-weight: 500; min-height: 40px; }
+.calc-card .check input { width: 20px; height: 20px; accent-color: #e84a2f; }
+.go-btn { font: inherit; font-weight: 800; font-size: 18px; border: 0; border-radius: 16px; padding: 13px 18px; background: #e84a2f; color: #fff; cursor: pointer; }
+.go-btn:focus-visible, .calc-card input:focus-visible { outline: 3px solid #f5b21b; outline-offset: 2px; }
+.calc-error { margin: 0; color: #c4381f; font-weight: 500; }
+.calc-note { margin: 0; font-size: 13px; color: #6b5f58; }
+#result { border-top: 1px solid #efe2d6; padding-top: 14px; }
+#result p { margin: 0; }
+.r-label { font-size: 13px; font-weight: 500; color: #6b5f58; margin-top: 12px !important; }
+.r-big { font-size: 34px; font-weight: 800; line-height: 1.15; color: #663886; }
+.r-mid { font-size: 20px; font-weight: 800; }
+.r-sub { color: #c4381f; font-weight: 500; }
+.r-years { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 4px; font-size: 15px; }
+.r-years li { display: flex; gap: 12px; }
+.r-years b { min-width: 56px; color: #663886; }
+.r-mitzva { margin-top: 14px; display: grid; gap: 6px; background: #f2ebfb; border-radius: 16px; padding: 12px 14px; font-size: 15px; }
+.r-mitzva p { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.r-mitzva span { color: #6b5f58; }
+.closing p { margin: 0 auto 24px; max-width: 34em; color: rgba(255, 248, 242, 0.82); }
+.closing p a { color: #f5b21b; }
+/* ---- collect birthdays (/collect) ---- */
+.text-in { font: inherit; font-size: 17px; padding: 11px 13px; border-radius: 14px; border: 1.5px solid #e6d9cc; background: #fff; color: #1f1a17; width: 100%; }
+.text-in.out { font-size: 14px; resize: none; }
+.text-in:focus-visible { outline: 3px solid #f5b21b; outline-offset: 2px; }
+.field-label { font-weight: 800; font-size: 16px; }
+.date-row { display: grid; grid-template-columns: 1fr 1.5fr 1.1fr; gap: 8px; }
+.date-row .text-in { padding-inline: 8px; }
+.ask-line { margin: 0; font-size: 20px; font-weight: 500; }
+.ask-line b { font-weight: 800; color: #663886; }
+.ghost-btn { font: inherit; font-weight: 800; font-size: 16px; border: 1.5px solid #e84a2f; color: #c4381f; background: transparent; border-radius: 14px; padding: 9px 16px; cursor: pointer; justify-self: start; margin-top: 8px; }
+#askDone, #answerDone { display: grid; gap: 6px; }
+#askDone[hidden], #answerDone[hidden] { display: none; }

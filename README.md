@@ -13,6 +13,15 @@ which GitHub Pages serves for every path without a file and which only forwards 
 `/j/?c=<code>`, `/p/<token>` to `/p/?t=<token>`); and `/.well-known/assetlinks.json`, which tells Android that the app may open
 `https://lahgog.app/...` links itself (App Links; the intent filter with `autoVerify` is in `app.json`).
 
+## Tools and other pages (since 2026-11-16)
+
+- `/hebrew-birthday` (`hebrew-birthday.html` + `.js`, the vendored hebcal): a Hebrew-birthday calculator; the date in
+  the address after `#`. Its explanations state hebcal's rules (DECISIONS 2026-11-16): change both together.
+- `/collect` (`collect.html` + `.js`): collecting friends' birthdays. Builds the app's `/a?d=` link in the browser;
+  the encoding must stay equal to `src/features/sharing/sharePayload.ts` (`packJson`).
+- `/community`: community guidelines, a plain version of terms §8-9.
+- All three use `landing.css`, are in `sitemap.xml`, and store nothing.
+
 ## Guest pages (since 2026-10-26)
 
 `/p/?t=<token>` (a plan's guests, R105) and `/g/?t=<token>` (a chat event's guests, R51) are real files

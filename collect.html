@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>מה יום ההולדת שלך? | לחגוג</title>
+    <meta name="description" content="אוספים את ימי ההולדת של החברים והמשפחה בקישור אחד: כל אחד ממלא את התאריך שלו ושולח בוואטסאפ, וזה נכנס ישר ללחגוג." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#24152F" />
+    <link rel="canonical" href="https://lahgog.app/collect" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="לחגוג" />
+    <meta property="og:title" content="מה יום ההולדת שלך? 🎂" />
+    <meta property="og:description" content="ממלאים את התאריך ושולחים בוואטסאפ, כדי שאף אחד לא ישכח." />
+    <meta property="og:url" content="https://lahgog.app/collect" />
+    <meta property="og:image" content="https://lahgog.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="he_IL" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/rubik-800.woff" as="font" type="font/woff" crossorigin />
+    <link rel="stylesheet" href="/landing.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">דילוג לתוכן</a>
+    <div class="stage">
+      <header class="wrap top">
+        <a class="mark" href="/"><img src="/icon.svg" alt="" width="40" height="40" />לחגוג</a>
+      </header>
+      <section class="wrap hero calc-hero" id="main">
+        <div>
+          <h1 id="headline">אוספים ימי הולדת, בקישור אחד.</h1>
+          <p class="lead" id="lead">שולחים קישור לחברים או לקבוצה. כל אחד ממלא את התאריך שלו ושולח לכם בוואטסאפ, ומשם זה נכנס ללחגוג בלחיצה.</p>
+        </div>
+
+        <!-- asking: my name, then a link to send -->
+        <div class="calc-card" id="ask" hidden>
+          <form id="askForm" novalidate>
+            <label for="askName">השם שלכם</label>
+            <input class="text-in" id="askName" type="text" maxlength="40" autocomplete="given-name" placeholder="למשל: דנה" />
+            <button class="go-btn" type="submit">ליצור קישור ולשלוח בוואטסאפ</button>
+            <p class="calc-error" id="askError" role="alert" hidden>כתבו את השם שלכם, כדי שידעו למי הם שולחים.</p>
+          </form>
+          <div id="askDone" hidden>
+            <p class="r-label">ההודעה לשליחה</p>
+            <textarea class="text-in out" id="askLink" rows="4" readonly></textarea>
+            <button class="ghost-btn" id="askCopy" type="button">העתקה</button>
+          </div>
+          <p class="calc-note">הקישור נוצר בדפדפן שלכם, ושום דבר לא נשמר אצלנו.</p>
+        </div>
+
+        <!-- answering: a friend sends me their date -->
+        <div class="calc-card" id="answer" hidden>
+          <form id="answerForm" novalidate>
+            <label for="myName">השם שלך</label>
+            <input class="text-in" id="myName" type="text" maxlength="40" autocomplete="name" />
+            <span class="field-label">תאריך הלידה</span>
+            <div class="date-row">
+              <select class="text-in" id="day" aria-label="יום"><option value="">יום</option></select>
+              <select class="text-in" id="month" aria-label="חודש"><option value="">חודש</option></select>
+              <input class="text-in" id="year" type="number" inputmode="numeric" min="1900" placeholder="שנה" aria-label="שנה, לא חובה" />
+            </div>
+            <span class="calc-note">השנה לא חובה.</span>
+            <label class="check"><input id="mySunset" type="checkbox" /> נולדתי אחרי השקיעה</label>
+            <button class="go-btn" type="submit">לשלוח בוואטסאפ</button>
+            <p class="calc-error" id="answerError" role="alert" hidden></p>
+          </form>
+          <div id="answerDone" hidden>
+            <p class="r-label">אם וואטסאפ לא נפתח, אפשר להעתיק ולשלוח:</p>
+            <textarea class="text-in out" id="answerLink" rows="4" readonly></textarea>
+            <button class="ghost-btn" id="answerCopy" type="button">העתקה</button>
+          </div>
+          <p class="calc-note">הפרטים נשלחים רק בהודעה שאתם שולחים, ושום דבר לא נשמר אצלנו.</p>
+        </div>
+      </section>
+    </div>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="wrap">
+        <h2 id="closing-title">לחגוג זוכרת את כל ימי ההולדת בשבילכם.</h2>
+        <p>גם לפי התאריך העברי, עם תזכורת בזמן. <a href="/">מה עוד יש בלחגוג</a></p>
+        <div class="soon" role="status"><strong>בקרוב ב-<bdi>Google Play</bdi></strong><span>הורדה חינם, לאנדרואיד</span></div>
+      </div>
+    </section>
+
+    <footer class="wrap foot">
+      <nav aria-label="קישורים">
+        <a href="/">לחגוג</a>
+        <a href="/hebrew-birthday">מחשבון יום הולדת עברי</a>
+        <a href="/privacy">פרטיות</a>
+        <a href="/terms">תנאי שימוש</a>
+        <a href="mailto:support@lahgog.app">support@lahgog.app</a>
+      </nav>
+      <p>לחגוג</p>
+    </footer>
+    <script src="/collect.js"></script>
+  </body>
+</html>
