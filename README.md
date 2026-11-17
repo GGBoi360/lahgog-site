@@ -103,7 +103,14 @@ One entry per Android package and signing key:
 
 This folder is the source of truth; the public repo **GGBoi360/lahgog-site** (GitHub Pages, branch `main`, root) only
 mirrors it (created 2026-10-13, owner approved). To publish: clone that repo into a scratch folder, copy this folder's
-files over it (including `.well-known`, `.nojekyll`, `CNAME`), commit and push; Pages redeploys in about a minute.
+files over it (including `.well-known`, `.nojekyll`, `CNAME`; not `tools/` or `.preview/`), commit and push; Pages
+redeploys in about a minute.
+
+**The top bar and the footer** (owner, 2026-11-17: one footer on every page, a top bar with the useful pages, links
+to lahgog.com) are written into every page by `tools/chrome.mjs`, between `<!-- chrome:bar -->` / `<!-- chrome:foot -->`
+markers, styled by `chrome.css`. Change them in the script, never by hand in a page, then
+`node site/tools/chrome.mjs`. Before publishing, `node site/tools/chrome.mjs --check` must say every page matches. A
+new page goes into the script's `PAGES` list (invite and guest pages get the footer only).
 
 ## Hosting
 

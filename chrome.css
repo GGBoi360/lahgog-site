@@ -1,0 +1,40 @@
+/* The top bar and the footer shared by every page of lahgog.app (owner, 2026-11-17: one footer everywhere, a top bar
+   with the useful pages). Written into each page by tools/chrome.mjs; edit the template there, not the pages.
+   Colors come from the page (currentColor), so the bar works on the dark landing stage and on the paper pages. */
+
+.sitebar { width: 100%; max-width: 1120px; margin-inline: auto; padding: 14px 20px; display: flex; align-items: center; gap: 12px; position: relative; }
+.sitebar a { color: inherit; text-decoration: none; }
+.sitebar .sb-mark { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; margin-inline-end: auto; }
+.sitebar .sb-mark img { width: 40px; height: 40px; border-radius: 11px; }
+.sitebar .sb-links { display: flex; align-items: center; gap: 4px; }
+.sitebar .sb-links a { font-weight: 500; font-size: 15px; padding: 8px 12px; border-radius: 999px; }
+.sitebar .sb-links a:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
+.sitebar .sb-links a[aria-current='page'] { background: color-mix(in srgb, currentColor 14%, transparent); }
+.sitebar .sb-biz::after { content: ' ↗'; font-size: 12px; opacity: 0.7; }
+.sitebar .sb-lang { font-weight: 500; font-size: 15px; padding: 6px 14px; border: 1px solid color-mix(in srgb, currentColor 30%, transparent); border-radius: 999px; }
+.sitebar a:focus-visible, .sitebar summary:focus-visible { outline: 3px solid #f5b21b; outline-offset: 2px; }
+
+/* Phones: the links fold into a ☰ menu (a visible button; no script needed). */
+.sitebar .sb-menu { display: none; }
+@media (max-width: 760px) {
+  .sitebar > .sb-links { display: none; }
+  .sitebar .sb-menu { display: block; }
+  .sitebar .sb-menu summary { list-style: none; cursor: pointer; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; font-size: 22px; line-height: 1; border: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
+  .sitebar .sb-menu summary::-webkit-details-marker { display: none; }
+  .sitebar .sb-menu[open] .sb-links { position: absolute; inset-inline-end: 20px; top: 64px; z-index: 20; flex-direction: column; align-items: stretch; min-width: 220px; padding: 8px; border-radius: 16px; background: #fff8f2; color: #1f1a17; box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.45); }
+  .sitebar .sb-menu[open] .sb-links a { padding: 12px 14px; }
+}
+
+/* Paper pages (style.css) center a narrow column in a padded body: the bar spans the top instead. */
+body:has(> .sitebar) { padding-top: 0; }
+body:has(> .sitebar) > .sitebar { margin-bottom: 24px; }
+
+.sitefoot { width: 100%; max-width: 1120px; margin-inline: auto; padding: 32px 20px 40px; font-size: 14px; color: inherit; text-align: start; }
+.sitefoot .sf-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px 32px; }
+.sitefoot h2 { font-size: 14px; font-weight: 800; margin: 0 0 8px; }
+.sitefoot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.sitefoot a { color: inherit; opacity: 0.85; }
+.sitefoot a:hover { opacity: 1; }
+.sitefoot a[aria-current='page'] { opacity: 1; font-weight: 500; }
+.sitefoot .sf-base { margin: 24px 0 0; opacity: 0.7; }
+.sitefoot a:focus-visible { outline: 3px solid #f5b21b; outline-offset: 2px; }

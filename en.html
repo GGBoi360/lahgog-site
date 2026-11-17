@@ -28,6 +28,7 @@
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="preload" href="/fonts/rubik-800.woff" as="font" type="font/woff" crossorigin />
     <link rel="stylesheet" href="/landing.css" />
+    <link rel="stylesheet" href="/chrome.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -46,10 +47,14 @@
     <a class="skip" href="#main">Skip to content</a>
 
     <div class="stage">
-      <header class="wrap top">
-        <a class="mark" href="/en"><img src="/icon.svg" alt="" width="40" height="40" />Lahgog</a>
-        <a class="lang" href="/" lang="he" hreflang="he">עברית</a>
-      </header>
+      <!-- chrome:bar -->
+      <header class="sitebar">
+        <a class="sb-mark" href="/en"><img src="/icon.svg" alt="" width="40" height="40" />Lahgog</a>
+        <nav class="sb-links" aria-label="Navigation"><a href="/hebrew-birthday">Hebrew birthday calculator</a><a href="/collect">Collect birthdays</a><a class="sb-biz" href="https://lahgog.com">For business</a></nav>
+        <details class="sb-menu"><summary aria-label="Menu">☰</summary><nav class="sb-links" aria-label="Navigation"><a href="/hebrew-birthday">Hebrew birthday calculator</a><a href="/collect">Collect birthdays</a><a class="sb-biz" href="https://lahgog.com">For business</a></nav></details>
+        <a class="sb-lang" href="/" lang="he" hreflang="he">עברית</a>
+        </header>
+      <!-- /chrome:bar -->
       <section class="wrap hero" id="main">
         <div>
           <h1>All your birthdays and events, in one place.</h1>
@@ -317,17 +322,17 @@
       </div>
     </section>
 
-    <footer class="wrap foot">
-      <nav aria-label="Links">
-        <a href="/privacy#en">Privacy</a>
-        <a href="/terms#en">Terms</a>
-        <a href="/community#en">Community guidelines</a>
-        <a href="/accessibility#en">Accessibility</a>
-        <a href="/delete-account#en">Delete account</a>
-        <a href="mailto:support@lahgog.app">support@lahgog.app</a>
-      </nav>
-      <p>Lahgog</p>
-    </footer>
+    <!-- chrome:foot -->
+      <footer class="sitefoot" aria-label="Links">
+      <div class="sf-cols">
+      <div><h2>Lahgog</h2><ul><li><a href="/en" aria-current="page">Home</a></li><li><a href="/" lang="he" hreflang="he">עברית</a></li><li><a href="mailto:support@lahgog.app">support@lahgog.app</a></li></ul></div>
+      <div><h2>Tools (Hebrew)</h2><ul><li><a href="/hebrew-birthday">Hebrew birthday calculator</a></li><li><a href="/collect">Collect birthdays</a></li></ul></div>
+      <div><h2>Information</h2><ul><li><a href="/privacy#en">Privacy</a></li><li><a href="/terms#en">Terms</a></li><li><a href="/community#en">Community guidelines</a></li><li><a href="/accessibility#en">Accessibility</a></li><li><a href="/delete-account#en">Delete account</a></li></ul></div>
+      <div><h2>For business</h2><ul><li><a href="https://lahgog.com">Lahgog for business</a></li><li><span>Event vendors and organizers</span></li></ul></div>
+      </div>
+      <p class="sf-base">Lahgog</p>
+      </footer>
+      <!-- /chrome:foot -->
     <script src="/landing.js" defer></script>
   </body>
 </html>

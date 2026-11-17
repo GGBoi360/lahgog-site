@@ -8,16 +8,19 @@
     <meta name="theme-color" content="#E84A2F" />
     <link rel="canonical" href="https://lahgog.app/accessibility" />
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/chrome.css" />
   </head>
   <body>
     <a class="skip" href="#content">דילוג לתוכן</a>
+    <!-- chrome:bar -->
+      <header class="sitebar">
+        <a class="sb-mark" href="/"><img src="/icon.svg" alt="" width="40" height="40" />לחגוג</a>
+        <nav class="sb-links" aria-label="ניווט"><a href="/hebrew-birthday">מחשבון יום הולדת עברי</a><a href="/collect">איסוף ימי הולדת</a><a class="sb-biz" href="https://lahgog.com">לעסקים</a></nav>
+        <details class="sb-menu"><summary aria-label="תפריט">☰</summary><nav class="sb-links" aria-label="ניווט"><a href="/hebrew-birthday">מחשבון יום הולדת עברי</a><a href="/collect">איסוף ימי הולדת</a><a class="sb-biz" href="https://lahgog.com">לעסקים</a></nav></details>
+        <a class="sb-lang" href="#en" lang="en" hreflang="en">English</a>
+        </header>
+      <!-- /chrome:bar -->
     <main class="doc" id="content">
-      <nav class="docnav" aria-label="ניווט">
-        <a href="/">לחגוג</a>
-        <a href="/privacy">מדיניות פרטיות</a>
-        <a href="/terms">תנאי שימוש</a>
-        <a href="#en" lang="en" hreflang="en">English</a>
-      </nav>
 
       <h1>הצהרת נגישות</h1>
       <p class="note">עודכנה לאחרונה: 15 באוקטובר 2026</p>
@@ -74,13 +77,16 @@
         <p>Lahgog's accessibility coordinator: <a href="mailto:support@lahgog.app">support@lahgog.app</a>. Tell us about any difficulty, with a description, the page or screen, and the device. We'll try to answer and fix it promptly.</p>
       </section>
     </main>
-    <footer>
-      לחגוג ·
-      <a href="/privacy">פרטיות</a> ·
-      <a href="/terms">תנאי שימוש</a> ·
-      <a href="/community">כללי הקהילה</a> ·
-      <a href="/delete-account">מחיקת חשבון</a> ·
-      <a href="/accessibility">הצהרת נגישות</a>
-    </footer>
+    <!-- chrome:foot -->
+      <footer class="sitefoot" aria-label="קישורים">
+      <div class="sf-cols">
+      <div><h2>לחגוג</h2><ul><li><a href="/">דף הבית</a></li><li><a href="/en" lang="en" hreflang="en">English</a></li><li><a href="mailto:support@lahgog.app">support@lahgog.app</a></li></ul></div>
+      <div><h2>כלים</h2><ul><li><a href="/hebrew-birthday">מחשבון יום הולדת עברי</a></li><li><a href="/collect">איסוף ימי הולדת</a></li></ul></div>
+      <div><h2>מידע</h2><ul><li><a href="/privacy">פרטיות</a></li><li><a href="/terms">תנאי שימוש</a></li><li><a href="/community">כללי הקהילה</a></li><li><a href="/accessibility" aria-current="page">הצהרת נגישות</a></li><li><a href="/delete-account">מחיקת חשבון</a></li></ul></div>
+      <div><h2>לעסקים</h2><ul><li><a href="https://lahgog.com">לחגוג לעסקים</a></li><li><span>ספקים ומארגני אירועים</span></li></ul></div>
+      </div>
+      <p class="sf-base">לחגוג</p>
+      </footer>
+      <!-- /chrome:foot -->
   </body>
 </html>
