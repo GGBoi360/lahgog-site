@@ -47,6 +47,20 @@
     return dayMonth.format(d) + ' – ' + dayMonth.format(end);
   }
 
+  // "בשעה 20:00", or with a chat event's end time (migration 101) "בשעות 20:00–23:30" (an end before the start runs
+  // past midnight, and the range still reads right). Over several days (spanDays) the end is on the last day:
+  // "בשעה 16:00, עד 12:00 ביום האחרון". The range sits in a left-to-right isolate so the Hebrew line can't swap it.
+  var LRI = String.fromCharCode(0x2066), PDI = String.fromCharCode(0x2069);
+  var HHMM = /^\d{2}:\d{2}/;
+  function timeLabel(start, end, spanDays) {
+    if (!start || !HHMM.test(String(start))) return '';
+    var s = String(start).slice(0, 5);
+    if (!end || !HHMM.test(String(end))) return 'בשעה ' + s;
+    var e = String(end).slice(0, 5);
+    if ((parseInt(spanDays, 10) || 0) > 0) return 'בשעה ' + s + ', עד ' + e + ' ביום האחרון';
+    return 'בשעות ' + LRI + s + '–' + e + PDI;
+  }
+
   function joinNames(list) {
     if (!list || !list.length) return '';
     if (list.length === 1) return list[0];
@@ -63,7 +77,7 @@
       call(cfg.view, { p_token: token }).then(function (ev) {
         if (!ev) { $('guest').hidden = true; return onMissing(); }
         $('gTitle').textContent = ev.title || '';
-        var when = [dateLabel(ev.startsOn, ev.spanDays), ev.startTime ? 'בשעה ' + String(ev.startTime).slice(0, 5) : ''].filter(Boolean).join(', ');
+        var when = [dateLabel(ev.startsOn, ev.spanDays), timeLabel(ev.startTime, ev.endTime, ev.spanDays)].filter(Boolean).join(', ');
         $('gWhen').textContent = when || 'התאריך עוד לא נקבע';
         if (ev.place) { $('gPlace').textContent = '📍 ' + ev.place; $('gPlace').hidden = false; }
         var hosts = kind === 'p' ? joinNames(ev.hosts) : ev.host;
