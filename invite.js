@@ -94,7 +94,9 @@
   var play = storeLink(code ? '/' + kind + '/' + code : path + location.search);
   $('play').href = play;
 
-  if (code) {
+  // A chat invite (/j/) has no code to type since 2026-11-21 (migration 107: invites are links only, the app has no
+  // "join with a code"); the code stays only inside the link. App and friend invites (/i/, /f/) still show theirs.
+  if (code && kind !== 'j') {
     $('code').textContent = code;
     $('codeBox').hidden = false;
     if (navigator.clipboard) {
